@@ -27,8 +27,8 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: Install deps
-        run: npm install          # <- use install, not `npm ci`
+      - name: Install dependencies
+        run: npm install   # <-- not npm ci, so no lockfile needed
 
       - name: Build
         run: npm run build
@@ -48,3 +48,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

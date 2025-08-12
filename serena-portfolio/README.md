@@ -1,96 +1,132 @@
-# Serena Frolli – Portfolio (Vite + React + Tailwind)
+# Serena Frolli - Portfolio Website
 
-A minimal, clean portfolio you can deploy via GitHub easily.
+A modern, responsive portfolio website built with React, Tailwind CSS, and Vite. Features a multi-page structure with separate pages for each section and multiple font options.
 
-## Quick Start (local)
+## 🚀 Features
 
-1. Install Node.js (LTS) from https://nodejs.org
-2. In a terminal:
+### Multi-Page Structure
+- **Home** (`/`) - Hero section with quick links to other pages
+- **About** (`/about`) - Personal information and education
+- **Experience** (`/experience`) - Professional experience and internships
+- **Projects** (`/projects`) - Technical projects and work samples
+- **Skills** (`/skills`) - Technical skills organized by category
+- **Athletics** (`/athletics`) - Athletic achievements and background
+- **Contact** (`/contact`) - Contact information and social links
+
+### Font Options
+The website includes 10 different font options that can be switched using the font selector in the navigation:
+
+1. **Inter** - Modern Professional (Default)
+2. **Poppins** - Clean & Minimal
+3. **Source Sans Pro** - Technical & Readable
+4. **Outfit** - Modern Geometric
+5. **Nunito Sans** - Professional & Friendly
+6. **DM Sans** - Clean & Modern
+7. **Inter + JetBrains Mono** - Technical & Professional (with monospace for code)
+8. **Playfair Display + Inter** - Elegant & Modern (serif headings)
+9. **IBM Plex Sans** - Technical & Clean
+10. **Albert Sans** - Modern & Versatile
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
-   npm run dev
    ```
-   Open the printed local URL in your browser.
 
-## Deploy to GitHub Pages (recommended free hosting)
-
-1. Create a **new GitHub repository** (e.g., `serena-portfolio`).
-2. Upload all files from this folder to that repository and commit.
-3. In GitHub, go to **Settings → Pages**.
-4. Under **Build and deployment**:
-   - Source: **GitHub Actions**
-   - It may auto-detect Vite. If not, add the workflow below.
-
-### GitHub Actions workflow
-
-Create `.github/workflows/deploy.yml` with this content (already included in this project):
-
-```yaml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+### Development
+Start the development server:
+```bash
+npm run dev
 ```
 
-5. Push to **main** branch. The action will build and publish to Pages.
-6. Your site will appear at:
-   ```
-   https://<your-username>.github.io/<repo-name>/
-   ```
+### Building for Production
+```bash
+npm run build
+```
 
-> If you want a custom domain or faster deploys, Vercel also works great.
+### Preview Production Build
+```bash
+npm run preview
+```
 
-## Customize
+## 📁 Project Structure
 
-- Edit contact links in `src/App.jsx` (the `LINKS` object).
-- Replace content in the `projects`, `experience`, `skills`, etc. arrays.
-- To add your resume, place `Serena_Frolli_Resume.pdf` in the `public/` folder.
+```
+src/
+├── components/
+│   ├── Navigation.jsx      # Main navigation with font selector
+│   ├── FontSelector.jsx    # Font switching component
+│   └── UI.jsx             # Reusable UI components
+├── pages/
+│   ├── Home.jsx           # Home page with hero section
+│   ├── About.jsx          # About page
+│   ├── Experience.jsx     # Experience page
+│   ├── Projects.jsx       # Projects page
+│   ├── Skills.jsx         # Skills page
+│   ├── Athletics.jsx      # Athletics page
+│   └── Contact.jsx        # Contact page
+├── styles/
+│   └── fonts.css          # Font option definitions
+├── App.jsx                # Main app with routing
+├── main.jsx              # App entry point
+└── index.css             # Global styles and font imports
+```
 
-## Notes
+## 🎨 Customization
 
-- This project uses Tailwind for styling, lucide-react for icons, and framer-motion for light animation.
-- No backend required.
+### Adding New Fonts
+1. Add the font definition to `src/styles/fonts.css`
+2. Add the font option to the `fontOptions` array in `src/components/FontSelector.jsx`
+3. Include the Google Fonts link if needed
+
+### Modifying Pages
+Each page is a separate component in the `src/pages/` directory. You can:
+- Edit content directly in the component files
+- Modify styling using Tailwind CSS classes
+- Add new sections or components as needed
+
+### Navigation
+The navigation is handled by React Router in `src/App.jsx`. To add new pages:
+1. Create a new page component in `src/pages/`
+2. Add the route to `src/App.jsx`
+3. Add the navigation link to `src/components/Navigation.jsx`
+
+## 🎯 Key Technologies
+
+- **React 18** - UI framework
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **Lucide React** - Icon library
+- **Vite** - Build tool and dev server
+
+## 📱 Responsive Design
+
+The website is fully responsive and works on:
+- Desktop (1200px+)
+- Tablet (768px - 1199px)
+- Mobile (320px - 767px)
+
+## 🚀 Deployment
+
+The website can be deployed to any static hosting service:
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3
+- etc.
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!

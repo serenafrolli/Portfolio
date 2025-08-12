@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
-import Skills from './pages/Skills'
 import Athletics from './pages/Athletics'
 import Contact from './pages/Contact'
 
@@ -18,7 +17,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/skills" element={<Skills />} />
           <Route path="/athletics" element={<Athletics />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

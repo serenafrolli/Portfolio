@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Type } from 'lucide-react'
 
 const fontOptions = [
@@ -65,7 +65,7 @@ const fontOptions = [
 ];
 
 export default function FontSelector() {
-  const [selectedFont, setSelectedFont] = useState('font-option-1');
+  const [selectedFont, setSelectedFont] = useState('font-option-9');
   const [isOpen, setIsOpen] = useState(false);
 
   const changeFont = (fontId) => {
@@ -83,6 +83,11 @@ export default function FontSelector() {
     
     setIsOpen(false);
   };
+
+  // Set initial font on component mount
+  useEffect(() => {
+    document.body.className = 'font-option-9';
+  }, []);
 
   const currentFont = fontOptions.find(f => f.id === selectedFont);
 

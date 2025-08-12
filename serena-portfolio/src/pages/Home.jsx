@@ -91,7 +91,7 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-8 text-center">
             Explore My Work
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="text-center p-6 rounded-2xl border bg-white hover:shadow-lg transition-shadow">
               <h3 className="text-lg font-semibold mb-2">Experience</h3>
               <p className="text-slate-600 mb-4">My professional journey in mechanical engineering and testing systems</p>
@@ -101,11 +101,6 @@ export default function Home() {
               <h3 className="text-lg font-semibold mb-2">Projects</h3>
               <p className="text-slate-600 mb-4">Technical projects from CFD studies to gear train design</p>
               <a href="/projects" className="text-blue-600 hover:underline">View Projects →</a>
-            </div>
-            <div className="text-center p-6 rounded-2xl border bg-white hover:shadow-lg transition-shadow">
-              <h3 className="text-lg font-semibold mb-2">Skills</h3>
-              <p className="text-slate-600 mb-4">Technical skills across mechanical design, analysis, and software</p>
-              <a href="/skills" className="text-blue-600 hover:underline">View Skills →</a>
             </div>
           </div>
         </div>

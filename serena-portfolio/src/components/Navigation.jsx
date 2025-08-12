@@ -19,7 +19,6 @@ export default function Navigation() {
     { label: "About", path: "/about" },
     { label: "Experience", path: "/experience" },
     { label: "Projects", path: "/projects" },
-    { label: "Skills", path: "/skills" },
     { label: "Athletics", path: "/athletics" },
     { label: "Contact", path: "/contact" },
   ];

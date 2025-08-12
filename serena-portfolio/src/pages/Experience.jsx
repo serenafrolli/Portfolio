@@ -33,11 +33,22 @@ const experience = [
       "Research on aerodynamics and structural analysis (ANSYS/FEA)",
     ],
   },
+  {
+    org: "NASA – BIG Idea Challenge",
+    role: "Team Lead / Mechanical Engineer",
+    location: "Evanston, IL",
+    period: "2024",
+    bullets: [
+      "Led concept development and prototyping for NASA BIG Idea Challenge",
+      "Owned mechanical architecture and test planning",
+      "Coordinated multi-disciplinary team on aggressive timeline",
+    ],
+  },
 ];
 
 export default function Experience() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+    <div className="min-h-screen site-bg text-slate-900">
       <Section label="Experience">
         <div className="grid md:grid-cols-2 gap-6">
           {experience.map((exp) => (

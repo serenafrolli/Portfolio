@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { Mail, Link as LinkIcon, Github, Cpu, Wrench } from 'lucide-react'
+import { Mail, Link as LinkIcon } from 'lucide-react'
 import { Button, Badge } from '../components/UI'
 
 const LINKS = {
   email: "serenafrolli@example.com",
   linkedin: "https://www.linkedin.com/in/serena-frolli/",
-  github: "https://github.com/serenafrolli",
+  // github: "https://github.com/serenafrolli",
 };
 
 const TAGS = {
@@ -21,7 +21,7 @@ const TAGS = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+    <div className="min-h-screen site-bg text-slate-900">
       {/* Hero */}
       <section className="pt-10 pb-8 sm:pt-16 sm:pb-12">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
@@ -52,13 +52,7 @@ export default function Home() {
                   </span>
                 </Button>
               </a>
-              <a href={LINKS.github}>
-                <Button variant="outline">
-                  <span className="inline-flex items-center gap-2">
-                    <Github className="w-4 h-4"/> GitHub
-                  </span>
-                </Button>
-              </a>
+              {/* GitHub link removed */}
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
               {[TAGS.mech, TAGS.aero, TAGS.cfd, TAGS.fea, TAGS.manufacturing, TAGS.pm].map((t) => (
@@ -73,13 +67,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-purple-200 via-blue-200 to-teal-200 border overflow-hidden shadow-lg" />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-white/70 backdrop-blur border grid place-content-center shadow">
-                <Cpu className="w-10 h-10"/>
-              </div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-white/70 backdrop-blur border grid place-content-center shadow">
-                <Wrench className="w-10 h-10"/>
-              </div>
+              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-100 to-cyan-100 border overflow-hidden shadow-lg" />
             </div>
           </motion.div>
         </div>

@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Rocket, Download, ChevronRight } from 'lucide-react'
-import FontSelector from './FontSelector'
 
 const LINKS = {
   email: "serenafrolli@example.com",
   linkedin: "https://www.linkedin.com/in/serena-frolli/",
-  github: "https://github.com/serenafrolli",
+  // github: "https://github.com/serenafrolli",
   resume: "/Serena_Frolli_Resume.pdf",
 };
 
@@ -46,7 +45,6 @@ export default function Navigation() {
           <a href={LINKS.resume} className="inline-flex items-center gap-1">
             <Download className="w-4 h-4" /> Resume
           </a>
-          <FontSelector />
         </nav>
         
         <button className="sm:hidden" onClick={() => setNavOpen(v => !v)} aria-label="Menu">

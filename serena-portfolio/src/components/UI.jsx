@@ -26,12 +26,12 @@ export function Badge({ children }) {
   )
 }
 
-export function Section({ id, label, children }) {
+export function Section({ id, label, children, accentClass = 'bg-gradient-to-b from-purple-500 to-blue-500' }) {
   return (
     <section id={id} className="scroll-mt-24 py-16">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6 flex items-center gap-2">
-          <span className="inline-block w-2 h-6 rounded bg-gradient-to-b from-purple-500 to-blue-500" />
+          <span className={`inline-block w-2 h-6 rounded ${accentClass}`} />
           {label}
         </h2>
         {children}

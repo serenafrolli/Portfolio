@@ -15,16 +15,17 @@ const academics = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
-      <Section label="About">
+    <div className="min-h-screen site-bg text-slate-900">
+      <Section label="About" accentClass="bg-blue-900">
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="md:col-span-2">
             <CardContent className="p-6">
               <p>
-                Hi! I'm Serena Frolli, originally from Italy and graduating with a B.S. in Mechanical
-                Engineering from Northwestern University. I've worked across aerospace, power
-                electronics testing, and manufacturing. My happy place is the boundary where analysis
-                meets build: quick loops from model → prototype → data → iterate.
+              My name is Serena Frolli and I am a third-year student at Northwestern University pursuing a
+              Bachelor of Science in Mechanical Engineering and a minor in Physics and Astronomy. 
+              When not in the classroom I am a D1 Cross Country student-athlete. 
+              I am originally from Genova, Italy and I attended high school at the Istituto di Istruzione Superiore Savoia Benincasa in Ancona, Italy. 
+              This portfolio highlights the projects I have worked on and the skills I have acquired in my academic career and beyond. 
               </p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Love: clean mechanisms, robust test plans, and tidy BOMs.</li>

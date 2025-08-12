@@ -63,7 +63,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+    <div className="min-h-screen site-bg text-slate-900">
       <Section label="Selected Projects">
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
           {projects.map((p) => (

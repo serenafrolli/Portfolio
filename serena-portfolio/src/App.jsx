@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+      <div className="min-h-screen site-bg text-slate-900">
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />

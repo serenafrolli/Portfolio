@@ -3,7 +3,7 @@ import { Card, CardContent, Button, Section } from '../components/UI'
 
 const LINKS = {
   email: "serenafrolli2026@u.northwestern.edu",
-  linkedin: "www.linkedin.com/in/serena-frolli-a1794a223",
+  linkedin: "https://www.linkedin.com/in/serena-frolli-a1794a223",
   // github: "https://github.com/serenafrolli",
 };
 

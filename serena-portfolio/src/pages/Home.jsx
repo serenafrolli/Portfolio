@@ -3,8 +3,8 @@ import { Mail, Link as LinkIcon } from 'lucide-react'
 import { Button, Badge } from '../components/UI'
 
 const LINKS = {
-  email: "serenafrolli@example.com",
-  linkedin: "https://www.linkedin.com/in/serena-frolli/",
+  email: "serenafrolli2026@u.northwestern.edu",
+  linkedin: "www.linkedin.com/in/serena-frolli-a1794a223",
   // github: "https://github.com/serenafrolli",
 };
 
@@ -31,11 +31,10 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
-              Mechanical Engineer • Aerospace & Systems
+              Serena Frolli
             </h1>
             <p className="mt-4 text-slate-600">
-              I design and analyze hardware that ships. From CFD and FEA to shop‑floor fixtures and
-              end‑of‑line testers, I love turning ambiguous problems into reliable products.
+              Mechanical Engineerin in the making. 
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={`mailto:${LINKS.email}`}>
@@ -67,7 +66,17 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-100 to-cyan-100 border overflow-hidden shadow-lg" />
+              <img 
+                src="/serena-photo.jpg" 
+                alt="Serena Frolli - Mechanical Engineer"
+                className="aspect-[4/3] rounded-2xl object-cover border shadow-lg"
+                onError={(e) => {
+                  // Fallback to gradient if image fails to load
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-100 to-cyan-100 border overflow-hidden shadow-lg hidden" />
             </div>
           </motion.div>
         </div>

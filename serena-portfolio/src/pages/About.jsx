@@ -5,7 +5,7 @@ const academics = [
   {
     school: "Northwestern University",
     degree: "B.S. Mechanical Engineering",
-    period: "2019–2025",
+    period: "2022–2025",
     details: [
       "StrengthsFinder: Activator, Learner, Ideation, Arranger, Restorative",
       "Aerospace focus; NASA-related research; ME 315/363/364/495 highlights",
@@ -21,11 +21,21 @@ export default function About() {
           <Card className="md:col-span-2">
             <CardContent className="p-6">
               <p>
-              My name is Serena Frolli and I am a third-year student at Northwestern University pursuing a
-              Bachelor of Science in Mechanical Engineering and a minor in Physics and Astronomy. 
-              When not in the classroom I am a D1 Cross Country student-athlete. 
+              Ciao!
+
+              My name is Serena Frolli and I am a fourth-year student at Northwestern University pursuing a
+              Bachelor of Science in Mechanical Engineering as well as a Master of Science in Mechanical Engineering within the combined 
+              Baherlor's and Master's program at Northwestern. 
+              
+              I am an asprining professional in the aerospace sector with a passion for engineeirng that pushes the boundaries of technology 
+              and has a real impact on the world.
+              
+              Outside of engineering, up to my Junior year, I was a D1 Cross Country student-athlete at my school. 
+              I am in love with running as a sport, it has shaped who I am today.
               I am originally from Genova, Italy and I attended high school at the Istituto di Istruzione Superiore Savoia Benincasa in Ancona, Italy. 
-              This portfolio highlights the projects I have worked on and the skills I have acquired in my academic career and beyond. 
+              
+              This portfolio highlights the projects I have worked on and the skills I have acquired in my academic career and beyond.
+              Ad Astra!
               </p>
               <ul className="list-disc pl-6 mt-4 space-y-2">
                 <li>Love: clean mechanisms, robust test plans, and tidy BOMs.</li>
@@ -39,7 +49,7 @@ export default function About() {
               <div className="flex items-center gap-2 font-medium">
                 <School className="w-4 h-4"/> Northwestern University
               </div>
-              <div className="text-sm text-slate-600">B.S. Mechanical Engineering (2019–2025)</div>
+              <div className="text-sm text-slate-600">B.S. Mechanical Engineering (2022–2025)</div>
               <div className="flex flex-wrap gap-2 pt-2">
                 {academics[0].details.map((d) => (<Badge key={d}>{d}</Badge>))}
               </div>

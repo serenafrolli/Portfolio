@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Link as LinkIcon } from 'lucide-react'
 import { Button, Badge } from '../components/UI'
+import serenaPhoto from '../assets/serena-photo.jpg'
 
 const LINKS = {
   email: "serenafrolli2026@u.northwestern.edu",
@@ -67,14 +68,9 @@ export default function Home() {
           >
             <div className="relative">
               <img 
-                src="/serena-photo.jpg" 
+                src={serenaPhoto}
                 alt="Serena Frolli - Mechanical Engineer"
-                className="aspect-[4/3] rounded-2xl object-cover border shadow-lg"
-                onError={(e) => {
-                  // Fallback to gradient if image fails to load
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
+                className="aspect-[4/3] rounded-2xl object-cover border shadow-lg w-full h-full"
               />
               <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-blue-100 via-indigo-100 to-cyan-100 border overflow-hidden shadow-lg hidden" />
             </div>

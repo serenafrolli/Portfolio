@@ -12,7 +12,7 @@ const athletics = [
 
 export default function Athletics() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+    <div className="min-h-screen site-bg text-slate-900">
       <Section label="Athletics">
         <div className="grid md:grid-cols-2 gap-6">
           {athletics.map((a) => (

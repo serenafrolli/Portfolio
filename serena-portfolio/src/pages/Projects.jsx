@@ -1,18 +1,27 @@
 import { Code2, ChevronRight, ExternalLink } from 'lucide-react'
-import { Card, CardContent, Badge, Section } from '../components/UI'
+import { Link } from 'react-router-dom'
+import { Card, CardContent, Section } from '../components/UI'
 
-const TAGS = {
-  mech: "Mechanical Engineering",
-  aero: "Aerospace",
-  cfd: "CFD",
-  fea: "FEA",
-  controls: "Controls",
-  manufacturing: "Manufacturing",
-  data: "Data Analysis",
-  pm: "Program Mgmt",
-};
+
 
 const projects = [
+  {
+    title: "NASA Big Idea Challenge: METALS",
+    period: "2024",
+    description:
+      "Advanced the development of inflatable metal systems for lunar infrastructure through innovative Free Inner Pressure Deformation (FIDU) technology.",
+    highlights: [
+      "Received $146,000 funding as one of six finalist schools",
+      "Developed inflatable metal systems for lunar infrastructure",
+      "Optmized the geometry of the inflatables for stress optimization",
+      "Manufactured 50+ inflatables with various materials and shapes",
+      "Received the ARTEMIS Award as top prize in the Challenge",
+    ],
+
+    links: [
+      { label: "View Details", href: "/nasa-metals" },
+    ],
+  },
   {
     title: "Pump Torque Emulator via Flywheel",
     period: "2025",
@@ -23,7 +32,7 @@ const projects = [
       "Optimized hole pattern to minimize inertia imbalance",
       "Python tooling for torque curves and visualization",
     ],
-    tags: [TAGS.mech, TAGS.controls, TAGS.data],
+
     links: [
       { label: "Code", href: "#" },
       { label: "Write-up", href: "#" },
@@ -38,7 +47,7 @@ const projects = [
       "Automated cleaning + outlier handling",
       "Repeatability study and confidence bounds",
     ],
-    tags: [TAGS.data, TAGS.mech],
+
     links: [],
   },
   {
@@ -47,7 +56,7 @@ const projects = [
     description:
       "Set up RANS CFD for Titan atmosphere propeller/airfoil studies; computed Reynolds numbers, validated against literature, and compared to experimental trends.",
     highlights: ["Meshing strategy & y+ control", "Post-processing scripts for lift/drag"],
-    tags: [TAGS.aero, TAGS.cfd],
+
     links: [],
   },
   {
@@ -56,7 +65,7 @@ const projects = [
     description:
       "Designed reduction gearbox (70 kW @ 2600 rpm → ~400 rpm). Included AGMA bending/contact stress checks, fit/tolerance selection (h6/p6), and FEA sanity checks.",
     highlights: ["Sizing + safety factors", "Face width factors 13/12 (pinion/gear)"],
-    tags: [TAGS.mech, TAGS.manufacturing, TAGS.fea],
+
     links: [],
   },
 ];
@@ -69,7 +78,11 @@ export default function Projects() {
           {projects.map((p) => (
             <Card key={p.title} className="group">
               <CardContent className="p-0">
-                <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-100" />
+                {p.title === "NASA BID IDEA CHALLENGE: METALS" ? (
+                  <div className="aspect-video bg-cover bg-center" style={{ backgroundImage: 'url(METALS_FinalRender.png)' }} />
+                ) : (
+                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50" />
+                )}
                 <div className="p-6">
                   <div className="text-sm text-slate-600 flex items-center gap-2">
                     <Code2 className="w-4 h-4"/> {p.period}
@@ -83,15 +96,19 @@ export default function Projects() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {p.tags.map((t) => (<Badge key={p.title + t}>{t}</Badge>))}
-                  </div>
+
                   {p.links?.length ? (
                     <div className="mt-4 flex gap-3">
                       {p.links.map((l) => (
-                        <a key={l.label} href={l.href} className="inline-flex items-center gap-1 text-sm underline underline-offset-4">
-                          {l.label} <ExternalLink className="w-3 h-3"/>
-                        </a>
+                        l.href.startsWith('/') ? (
+                          <Link key={l.label} to={l.href} className="inline-flex items-center gap-1 text-sm underline underline-offset-4">
+                            {l.label} <ChevronRight className="w-3 h-3"/>
+                          </Link>
+                        ) : (
+                          <a key={l.label} href={l.href} className="inline-flex items-center gap-1 text-sm underline underline-offset-4">
+                            {l.label} <ExternalLink className="w-3 h-3"/>
+                          </a>
+                        )
                       ))}
                     </div>
                   ) : null}

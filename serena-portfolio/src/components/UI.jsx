@@ -9,8 +9,8 @@ export function CardContent({ className = '', children }) {
 
 export function Button({ variant='default', asChild=false, className='', children, ...props }) {
   const base = variant === 'outline'
-    ? 'border bg-white hover:bg-gray-50'
-    : 'bg-black text-white hover:bg-gray-800'
+    ? 'border border-blue-800 bg-white text-blue-800 hover:bg-blue-50'
+    : 'bg-blue-800 text-white hover:bg-blue-900'
   const el = (
     <button className={`px-4 py-2 rounded-xl text-sm transition ${base} ${className}`} {...props}>
       {children}
@@ -22,7 +22,7 @@ export function Button({ variant='default', asChild=false, className='', childre
 
 export function Badge({ children }) {
   return (
-    <span className="text-xs rounded-full px-2 py-1 border bg-white/50 backdrop-blur">{children}</span>
+    <span className="text-xs rounded-full px-2 py-1 border border-blue-200 bg-blue-50 text-blue-800">{children}</span>
   )
 }
 

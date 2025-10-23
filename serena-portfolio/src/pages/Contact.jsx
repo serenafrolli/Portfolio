@@ -1,5 +1,6 @@
 import { Mail, Link as LinkIcon } from 'lucide-react'
 import { Card, CardContent, Button, Section } from '../components/UI'
+import RocketGame from '../components/RocketGame'
 
 const LINKS = {
   email: "serenafrolli2026@u.northwestern.edu",
@@ -36,6 +37,9 @@ export default function Contact() {
             </div>
           </CardContent>
         </Card>
+        
+        {/* Rocket Game */}
+        <RocketGame />
       </Section>
     </div>
   );

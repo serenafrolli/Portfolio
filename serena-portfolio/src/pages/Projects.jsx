@@ -1,6 +1,8 @@
 import { Code2, ChevronRight, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Card, CardContent, Section } from '../components/UI'
+import metalsRender from '../assets/METALS_FinalRender.png'
+import nuLogo from '../assets/NU-logo.png'
 
 
 
@@ -79,7 +81,23 @@ export default function Projects() {
             <Card key={p.title} className="group">
               <CardContent className="p-0">
                 {p.title === "NASA BID IDEA CHALLENGE: METALS" ? (
-                  <div className="aspect-video bg-cover bg-center" style={{ backgroundImage: 'url(METALS_FinalRender.png)' }} />
+                  <div className="aspect-video overflow-hidden bg-slate-200 flex items-center justify-center">
+                    <img 
+                      src={metalsRender}
+                      alt="METALS Final Render"
+                      className="w-full h-full object-cover"
+                      onLoad={() => console.log('METALS render loaded successfully!')}
+                      onError={(e) => {
+                        console.error('METALS render failed to load');
+                        console.error('Image src:', e.target.src);
+                        console.error('metalsRender value:', metalsRender);
+                      }}
+                    />
+                    {/* Debug info */}
+                    <div className="absolute top-2 left-2 text-xs text-white bg-black/50 p-1 rounded">
+                      Debug: {metalsRender ? 'Image imported' : 'No image'}
+                    </div>
+                  </div>
                 ) : (
                   <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50" />
                 )}

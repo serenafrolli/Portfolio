@@ -80,7 +80,7 @@ export default function Projects() {
           {projects.map((p) => (
             <Card key={p.title} className="group">
               <CardContent className="p-0">
-                {p.title === "NASA BID IDEA CHALLENGE: METALS" ? (
+                {p.title === "NASA Big Idea Challenge: METALS" ? (
                   <div className="aspect-video overflow-hidden bg-slate-200 flex items-center justify-center">
                     <img 
                       src={metalsRender}

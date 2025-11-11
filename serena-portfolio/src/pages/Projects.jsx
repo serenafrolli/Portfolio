@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Card, CardContent, Section } from '../components/UI'
 import metalsRender from '../assets/METALS_FinalRender.png'
 import nuLogo from '../assets/NU-logo.png'
+// Import will be added once image file is in assets folder
+// import jackInBoxGraph from '../assets/jack-in-box-graph.png'
 
 
 
@@ -25,19 +27,52 @@ const projects = [
     ],
   },
   {
-    title: "Pump Torque Emulator via Flywheel",
-    period: "2025",
+    title: "LeftAware",
+    period: "2023",
     description:
-      "Designed and analyzed a flywheel system to emulate the startup and steady-state torque of a centrifugal water pump so firmware behaves as if a real pump is attached.",
+      "Designed an affordable, wearable device system to help patients with left-side visuospatial neglect be reminded to visually scan left, integrating glasses, haptic feedback, and a mobile app.",
     highlights: [
-      "Modeled motor + load dynamics; matched torque ripple and spin-up",
-      "Optimized hole pattern to minimize inertia imbalance",
-      "Python tooling for torque curves and visualization",
+      "Developed integrated system with glasses, haptic motor clip, gyroscope, and mobile app",
+      "Conducted primary research through client interviews with Dr. Kate Enzler at Shirley Ryan AbilityLab",
+      "Created user-friendly mobile app with Bluetooth connectivity and progress tracking",
+      "Designed adjustable, simple device prioritizing user autonomy and accessibility",
+      "Iteratively prototyped and tested with real users for comfort and effectiveness",
     ],
 
     links: [
-      { label: "Code", href: "#" },
-      { label: "Write-up", href: "#" },
+      { label: "View Details", href: "/leftaware" },
+    ],
+  },
+  {
+    title: "Jack in a Box Dynamics",
+    period: "2024",
+    description:
+      "Modeled the dynamics of a jack inside a box for Machine Dynamics final project. Included two rigid bodies, six degrees of freedom, sixteen impact conditions, and two external forces using Euler-Lagrange equations.",
+    highlights: [
+      "Solved Euler-Lagrange equations for 2D rigid body dynamics",
+      "Implemented 16 impact conditions to constrain jack to box edges",
+      "Applied piecewise forces for box motion with threshold-based control",
+      "Generated animations and state variable plots using SymPy",
+    ],
+
+    links: [
+      { label: "View Details", href: "/jack-in-box" },
+    ],
+  },
+  {
+    title: "Unducted turbofan CFD simulation",
+    period: "2024",
+    description:
+      "Analysis and presentation of unducted turbofan engine technology, featuring exposed fan blade design for improved efficiency and performance in aircraft propulsion systems.",
+    highlights: [
+      "Analyzed unducted turbofan design with exposed fan blades",
+      "Evaluated performance characteristics and efficiency improvements",
+      "Examined integration challenges and design trade-offs",
+      "Collaborative team project with equal contributions",
+    ],
+
+    links: [
+      { label: "View Details", href: "/unducted-turbofan" },
     ],
   },
   {
@@ -50,7 +85,9 @@ const projects = [
       "Repeatability study and confidence bounds",
     ],
 
-    links: [],
+    links: [
+      { label: "View Details", href: "/pressure-sensor-analysis" },
+    ],
   },
   {
     title: "Titan Rotor/Airfoil CFD Studies",
@@ -59,16 +96,24 @@ const projects = [
       "Set up RANS CFD for Titan atmosphere propeller/airfoil studies; computed Reynolds numbers, validated against literature, and compared to experimental trends.",
     highlights: ["Meshing strategy & y+ control", "Post-processing scripts for lift/drag"],
 
-    links: [],
+    links: [
+      { label: "View Details", href: "/titan-cfd" },
+    ],
   },
   {
-    title: "Two‑Stage Gear Train Design",
+    title: "Three-Shaft Gear Train Design",
     period: "2025",
     description:
-      "Designed reduction gearbox (70 kW @ 2600 rpm → ~400 rpm). Included AGMA bending/contact stress checks, fit/tolerance selection (h6/p6), and FEA sanity checks.",
-    highlights: ["Sizing + safety factors", "Face width factors 13/12 (pinion/gear)"],
+      "Designed a three-shaft gear train reducing input speed from 2400 rpm to 340.45 rpm with 56 kW power transmission. Designed for 99% reliability over 5 years of continuous operation.",
+    highlights: [
+      "Comprehensive design of shafts, gears, and bearings with AGMA analysis",
+      "Gear design with through-hardened steel materials and safety factors",
+      "Bearing selection for infinite life with proper load ratings",
+    ],
 
-    links: [],
+    links: [
+      { label: "View Details", href: "/gear-train-design" },
+    ],
   },
 ];
 
@@ -77,9 +122,15 @@ export default function Projects() {
     <div className="min-h-screen site-bg text-slate-900">
       <Section label="Selected Projects">
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <Card key={p.title} className="group">
-              <CardContent className="p-0">
+          {projects.map((p) => {
+            const detailLink = p.links?.find(l => l.href.startsWith('/'))
+            const CardWrapper = detailLink ? Link : 'div'
+            const wrapperProps = detailLink ? { to: detailLink.href, className: 'block' } : {}
+            
+            return (
+              <CardWrapper key={p.title} {...wrapperProps}>
+                <Card className="group h-full cursor-pointer hover:shadow-lg transition-shadow">
+                  <CardContent className="p-0">
                 {p.title === "NASA Big Idea Challenge: METALS" ? (
                   <div className="aspect-video overflow-hidden bg-slate-200 flex items-center justify-center">
                     <img 
@@ -98,6 +149,58 @@ export default function Projects() {
                       Debug: {metalsRender ? 'Image imported' : 'No image'}
                     </div>
                   </div>
+                ) : p.title === "Jack in a Box Dynamics" ? (
+                  <div className="aspect-video overflow-hidden bg-white flex items-center justify-center">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}state-variables-graph.png`}
+                      alt="State Variables Graph - xb, yb, θb, xj, yj, θj vs Time"
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => {
+                        // Fallback to gradient if image not found
+                        e.target.style.display = 'none'
+                        e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-amber-100 to-orange-50'
+                      }}
+                    />
+                  </div>
+                ) : p.title === "LeftAware" ? (
+                  <div className="aspect-video overflow-hidden bg-white flex items-center justify-center">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}Rotasense.png`}
+                      alt="Rotasense"
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => {
+                        // Fallback to gradient if image not found
+                        e.target.style.display = 'none'
+                        e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-purple-100 to-pink-50'
+                      }}
+                    />
+                  </div>
+                ) : p.title === "Unducted turbofan CFD simulation" ? (
+                  <div className="aspect-video overflow-hidden bg-slate-900">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}Velocity Streamline - White.png`}
+                      alt="Velocity Streamline"
+                      className="w-full h-full object-cover scale-110"
+                      onError={(e) => {
+                        // Fallback to gradient if image not found
+                        e.target.style.display = 'none'
+                        e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+                      }}
+                    />
+                  </div>
+                ) : p.title === "Three-Shaft Gear Train Design" ? (
+                  <div className="aspect-video overflow-hidden bg-white flex items-center justify-center">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}gear.png`}
+                      alt="Gear Train Design"
+                      className="w-full h-full object-contain p-2"
+                      onError={(e) => {
+                        // Fallback to gradient if image not found
+                        e.target.style.display = 'none'
+                        e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+                      }}
+                    />
+                  </div>
                 ) : (
                   <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50" />
                 )}
@@ -115,25 +218,32 @@ export default function Projects() {
                     ))}
                   </ul>
 
-                  {p.links?.length ? (
-                    <div className="mt-4 flex gap-3">
-                      {p.links.map((l) => (
-                        l.href.startsWith('/') ? (
-                          <Link key={l.label} to={l.href} className="inline-flex items-center gap-1 text-sm underline underline-offset-4">
-                            {l.label} <ChevronRight className="w-3 h-3"/>
-                          </Link>
-                        ) : (
-                          <a key={l.label} href={l.href} className="inline-flex items-center gap-1 text-sm underline underline-offset-4">
-                            {l.label} <ExternalLink className="w-3 h-3"/>
-                          </a>
-                        )
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    {p.links?.length ? (
+                      <div className="mt-4 flex gap-3">
+                        {p.links.map((l) => (
+                          l.href.startsWith('/') ? (
+                            <span key={l.label} className="inline-flex items-center gap-1 text-sm text-slate-700 group-hover:text-blue-600 transition-colors">
+                              {l.label} <ChevronRight className="w-3 h-3"/>
+                            </span>
+                          ) : (
+                            <a 
+                              key={l.label} 
+                              href={l.href} 
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 text-sm underline underline-offset-4"
+                            >
+                              {l.label} <ExternalLink className="w-3 h-3"/>
+                            </a>
+                          )
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </CardContent>
+              </Card>
+            </CardWrapper>
+          )
+        })}
         </div>
       </Section>
     </div>

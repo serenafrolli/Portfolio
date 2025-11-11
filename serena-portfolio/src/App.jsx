@@ -4,6 +4,12 @@ import Home from './pages/Home'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import NASAMETALS from './pages/NASA-METALS'
+import LeftAware from './pages/LeftAware'
+import JackInBox from './pages/JackInBox'
+import UnductedTurbofan from './pages/UnductedTurbofan'
+import PressureSensorAnalysis from './pages/PressureSensorAnalysis'
+import TitanCFD from './pages/TitanCFD'
+import GearTrainDesign from './pages/GearTrainDesign'
 import Athletics from './pages/Athletics'
 import Contact from './pages/Contact'
 
@@ -17,6 +23,12 @@ export default function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/nasa-metals" element={<NASAMETALS />} />
+          <Route path="/leftaware" element={<LeftAware />} />
+          <Route path="/jack-in-box" element={<JackInBox />} />
+          <Route path="/unducted-turbofan" element={<UnductedTurbofan />} />
+          <Route path="/pressure-sensor-analysis" element={<PressureSensorAnalysis />} />
+          <Route path="/titan-cfd" element={<TitanCFD />} />
+          <Route path="/gear-train-design" element={<GearTrainDesign />} />
           <Route path="/athletics" element={<Athletics />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

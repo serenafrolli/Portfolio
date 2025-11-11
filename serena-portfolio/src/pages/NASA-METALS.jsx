@@ -22,9 +22,9 @@ export default function NASAMETALS() {
   return (
     <div className="min-h-screen site-bg text-slate-900">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 to-purple-900 text-white">
+      <div className="bg-gradient-to-r from-slate-800 to-slate-900 text-white">
         <div className="max-w-6xl mx-auto px-4 py-16">
-          <Link to="/projects" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-8">
+          <Link to="/projects" className="inline-flex items-center gap-2 text-slate-300 hover:text-white mb-8">
             <ArrowLeft className="w-4 h-4" />
             Back to Projects
           </Link>
@@ -37,10 +37,10 @@ export default function NASAMETALS() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               NASA Big Idea Challenge 2024
             </h1>
-            <h2 className="text-2xl md:text-3xl font-semibold text-blue-200 mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold text-slate-200 mb-6">
               METALS: Inflatable Metal Systems for Lunar Infrastructure
             </h2>
-            <p className="text-lg text-blue-100 max-w-3xl">
+            <p className="text-lg text-slate-200 max-w-3xl">
               Advancing the development of inflatable metal systems for lunar infrastructure through innovative 
               Free Inner Pressure Deformation (FIDU) technology
             </p>
@@ -57,12 +57,12 @@ export default function NASAMETALS() {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="flex flex-col items-center p-4 rounded-lg border hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group"
+                className="flex flex-col items-center p-4 rounded-lg border hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <item.icon className="w-6 h-6 text-blue-600 mb-2 group-hover:scale-110 transition-transform" />
+                <item.icon className="w-6 h-6 text-slate-600 mb-2 group-hover:scale-110 transition-transform" />
                 <span className="text-sm font-medium text-slate-700">{item.title}</span>
               </motion.button>
             ))}
@@ -91,9 +91,9 @@ export default function NASAMETALS() {
                 Program (GCD) in advancing cutting-edge technologies and capabilities for future NASA missions.
               </p>
               
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
-                <h3 className="text-xl font-semibold mb-3 text-blue-900">The 2024 Big Idea Challenge Team: METALS</h3>
-                <p className="text-blue-800">
+              <div className="bg-slate-50 border-l-4 border-slate-500 p-6 rounded-r-lg mb-6">
+                <h3 className="text-xl font-semibold mb-3 text-slate-900">The 2024 Big Idea Challenge Team: METALS</h3>
+                <p className="text-slate-700">
                   The challenge was to develop novel technologies for luner infrastructure and applications 
                   that utilize inflatable systems to support Artemis missions.
                 </p>
@@ -144,19 +144,19 @@ export default function NASAMETALS() {
               to wind turbines while demonstrating outstanding structural strength-to-weight ratios.
             </p>
             
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
+            <div className="bg-slate-50 p-6 rounded-lg mb-6">
               <h3 className="text-xl font-semibold mb-3 text-slate-900">Key Applications</h3>
               <ul className="space-y-2 text-slate-700">
                 <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></span>
                   Load bearing structures
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></span>
                   Storage vessels for fuels and materials
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></span>
                   Conduits for resource transportation
                 </li>
               </ul>
@@ -169,13 +169,13 @@ export default function NASAMETALS() {
               to address the constraints of launch vehicle capacity.
             </p>
             
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
-              <h3 className="text-xl font-semibold mb-3 text-blue-900">Technology Demonstration Goal</h3>
-              <p className="text-blue-800">
+            <div className="bg-slate-50 border-l-4 border-slate-500 p-6 rounded-r-lg">
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">Technology Demonstration Goal</h3>
+              <p className="text-slate-700">
                 The goal towards the Technology Demonstration (final phase of the Challenge) was to advance 
                 the Technology Readiness Level (TRL) of the FIDU manufacturing method for lunar applications by:
               </p>
-              <ol className="list-decimal list-inside mt-3 space-y-1 text-blue-800">
+              <ol className="list-decimal list-inside mt-3 space-y-1 text-slate-700">
                 <li>Demonstrating the scalability of FIDU for infrastructure-level deployment</li>
                 <li>Designing a variety of lunar-relevant systems engineered for the containment of critical life-support resources for manufacturing</li>
               </ol>
@@ -200,14 +200,14 @@ export default function NASAMETALS() {
               buckling on circular shaped samples occurred at specific points on the edge.
             </p>
             
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-blue-900">Sinusoidal Wave Function Implementation</h3>
-              <p className="text-blue-800 mb-4">
+            <div className="bg-slate-50 p-6 rounded-lg mb-6">
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">Sinusoidal Wave Function Implementation</h3>
+              <p className="text-slate-700 mb-4">
                 From this observation, the team decided to implement a sinusoidal wave function to the sheet 
                 metal's edge profile. Initial simulations demonstrated that this significantly relieved stress 
                 and enhanced volumetric expansion.
               </p>
-              <p className="text-blue-800">
+              <p className="text-slate-700">
                 The optimized shape, referred to as the "SEC", is defined by the following equation:
               </p>
               <div className="bg-white p-4 rounded border mt-4 font-mono text-sm">
@@ -221,14 +221,14 @@ export default function NASAMETALS() {
               adjusted to balance volume and stress.
             </p>
             
-            <div className="bg-blue-50 p-6 rounded-lg mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-blue-900">Advanced Shape: Truncated OTR (TOTR)</h3>
-              <p className="text-blue-800 mb-4">
+            <div className="bg-slate-50 p-6 rounded-lg mb-6">
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">Advanced Shape: Truncated OTR (TOTR)</h3>
+              <p className="text-slate-700 mb-4">
                 However, stress was observed to concentrate at the edges and troughs of the shape. To address 
                 this issue, a more advanced shape called the "Truncated OTR" (TOTR) was introduced, with a 
                 piecewise equation.
               </p>
-              <p className="text-blue-800">
+              <p className="text-slate-700">
                 The truncation factor (T), ranging from -1 to 1, allows more precise control of the edge 
                 profile by adjusting the relationship between the crests and troughs. Smoother edge transitions 
                 are ensured for optimal performance across various configurations.
@@ -255,9 +255,9 @@ export default function NASAMETALS() {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Shapes Produced</h4>
-                <ul className="text-sm text-blue-800 space-y-1">
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-slate-900 mb-2">Shapes Produced</h4>
+                <ul className="text-sm text-slate-700 space-y-1">
                   <li>• Circle</li>
                   <li>• Pill</li>
                   <li>• Hexagon</li>
@@ -266,9 +266,9 @@ export default function NASAMETALS() {
                 </ul>
               </div>
               
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Materials Used</h4>
-                <ul className="text-sm text-blue-800 space-y-1">
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-slate-900 mb-2">Materials Used</h4>
+                <ul className="text-sm text-slate-700 space-y-1">
                   <li>• Al 6061</li>
                   <li>• Stainless steel 304</li>
                   <li>• Stainless steel 321</li>
@@ -276,21 +276,21 @@ export default function NASAMETALS() {
                 </ul>
               </div>
               
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-900 mb-2">Thickness Range</h4>
-                <p className="text-sm text-blue-800">
+              <div className="bg-slate-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-slate-900 mb-2">Thickness Range</h4>
+                <p className="text-sm text-slate-700">
                   From 0.02" to 0.09"
                 </p>
               </div>
             </div>
             
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-3 text-blue-900">Inflation Testing</h3>
-              <p className="text-blue-800 mb-4">
+            <div className="bg-slate-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3 text-slate-900">Inflation Testing</h3>
+              <p className="text-slate-700 mb-4">
                 These were inflated using either water or compressed air, reaching pressures of up to 2400 psi 
                 and 200 psi, respectively.
               </p>
-              <ul className="text-blue-800 space-y-2">
+              <ul className="text-slate-700 space-y-2">
                 <li>• Pressure increased in 20 psi increments</li>
                 <li>• Volumetric expansion recorded at each step</li>
                 <li>• Final volume measured at maximum pressure</li>
@@ -317,30 +317,30 @@ export default function NASAMETALS() {
             </p>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-blue-900">Vacuum Chamber Testing</h3>
-                <p className="text-blue-800">
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-3 text-slate-900">Vacuum Chamber Testing</h3>
+                <p className="text-slate-700">
                   Ensures inflation stability under lunar-like vacuum pressures.
                 </p>
               </div>
               
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-blue-900">Micrometeorite Impact Testing</h3>
-                <p className="text-blue-800">
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-3 text-slate-900">Micrometeorite Impact Testing</h3>
+                <p className="text-slate-700">
                   Assesses durability against space debris.
                 </p>
               </div>
               
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-blue-900">Abrasion Resistance Testing</h3>
-                <p className="text-blue-800">
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-3 text-slate-900">Abrasion Resistance Testing</h3>
+                <p className="text-slate-700">
                   Via sandblasting to measure surface wear.
                 </p>
               </div>
               
-              <div className="bg-blue-50 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-3 text-blue-900">Strength & Pressure Testing</h3>
-                <p className="text-blue-800">
+              <div className="bg-slate-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-3 text-slate-900">Strength & Pressure Testing</h3>
+                <p className="text-slate-700">
                   Evaluates mechanical properties after work-hardening and determines safe operational limits.
                 </p>
               </div>

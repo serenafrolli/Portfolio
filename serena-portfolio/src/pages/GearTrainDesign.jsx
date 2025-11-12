@@ -34,7 +34,7 @@ export default function GearTrainDesign() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Three-Shaft Gear Train Design
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold text-slate-300 mb-6">

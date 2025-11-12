@@ -37,7 +37,7 @@ export default function UnductedTurbofan() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Unducted turbofan CFD simulation
             </h1>
             <div className="text-lg text-slate-200 mb-4">

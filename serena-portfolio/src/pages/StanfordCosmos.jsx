@@ -71,7 +71,7 @@ export default function StanfordCosmos() {
                     href="https://phy.princeton.edu/people/paul-j-steinhardt"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Princeton University Profile <ExternalLink className="w-4 h-4" />
                   </a>
@@ -81,7 +81,7 @@ export default function StanfordCosmos() {
                     href="https://paulsteinhardt.org/inflationarycosmology/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Inflationary Cosmology <ExternalLink className="w-4 h-4" />
                   </a>
@@ -91,7 +91,7 @@ export default function StanfordCosmos() {
                     href="https://arxiv.org/pdf/1803.01961.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     arXiv:1803.01961 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -101,7 +101,7 @@ export default function StanfordCosmos() {
                     href="https://paulsteinhardt.org/wp-content/uploads/2020/10/0411036.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Paper: 0411036 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -111,7 +111,7 @@ export default function StanfordCosmos() {
                     href="https://paulsteinhardt.org/wp-content/uploads/2020/10/Ijjas-1P-120616.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Paper: Ijjas-1P-120616 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -127,7 +127,7 @@ export default function StanfordCosmos() {
                     href="https://web.stanford.edu/~alinde/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Stanford University Profile <ExternalLink className="w-4 h-4" />
                   </a>
@@ -137,7 +137,7 @@ export default function StanfordCosmos() {
                     href="https://web.stanford.edu/~alinde/1984.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Paper: 1984 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -147,7 +147,7 @@ export default function StanfordCosmos() {
                     href="https://inspirehep.net/literature/1753587"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     INSPIRE-HEP: 1753587 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -157,7 +157,7 @@ export default function StanfordCosmos() {
                     href="https://arxiv.org/pdf/hep-th/0211048.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     arXiv:hep-th/0211048 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -167,7 +167,7 @@ export default function StanfordCosmos() {
                     href="https://arxiv.org/pdf/1909.04687.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     arXiv:1909.04687 <ExternalLink className="w-4 h-4" />
                   </a>
@@ -177,7 +177,7 @@ export default function StanfordCosmos() {
                     href="https://slideplayer.com/slide/8161076/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     SlidePlayer: Inflationary Multiverse <ExternalLink className="w-4 h-4" />
                   </a>
@@ -187,7 +187,7 @@ export default function StanfordCosmos() {
                     href="https://slidetodoc.com/inflationary-multiverse-andrei-linde-contents-from-the-big/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     SlideToDoc: Inflationary Multiverse <ExternalLink className="w-4 h-4" />
                   </a>
@@ -203,7 +203,7 @@ export default function StanfordCosmos() {
                     href="https://astronomy.com/magazine/2018/07/inflation-leaves-its-mark"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Astronomy.com: Inflation Leaves Its Mark <ExternalLink className="w-4 h-4" />
                   </a>
@@ -213,7 +213,7 @@ export default function StanfordCosmos() {
                     href="https://www.bbc.com/future/article/20200117-what-if-the-universe-has-no-end"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     BBC Future: What If The Universe Has No End <ExternalLink className="w-4 h-4" />
                   </a>
@@ -223,7 +223,7 @@ export default function StanfordCosmos() {
                     href="https://lweb.cfa.harvard.edu/~cbischoff/cmb/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Harvard CMB Resources <ExternalLink className="w-4 h-4" />
                   </a>
@@ -233,7 +233,7 @@ export default function StanfordCosmos() {
                     href="https://phys.org/news/2015-02-cosmic-inflation-bicep2-results.html"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Phys.org: Cosmic Inflation BICEP2 Results <ExternalLink className="w-4 h-4" />
                   </a>

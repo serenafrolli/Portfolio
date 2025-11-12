@@ -17,6 +17,8 @@ export default function Home() {
   const containerRef = useRef(null)
   const [videoLoaded, setVideoLoaded] = useState(false)
   const [videoError, setVideoError] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -63,11 +65,25 @@ export default function Home() {
               <source src="/background-video.mov" type="video/quicktime" />
             </video>
           )}
-          {/* Fallback background image if video doesn't load or fails */}
+          {/* Fallback background image - shows immediately and stays if video fails */}
+          <img
+            src={`${import.meta.env.BASE_URL}rocket_hor.jpg`}
+            alt="Background"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            } ${videoLoaded && !videoError ? 'opacity-0' : ''}`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
+            loading="eager"
+            style={{ transform: `scale(${backgroundScale})` }}
+          />
+          {imageError && (
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-slate-800 to-slate-900" />
+          )}
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 w-full h-full"
             style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(rocket_hor.jpg)`
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6))`
             }}
           />
           {/* Overlay for better text readability */}
@@ -170,7 +186,7 @@ export default function Home() {
               </p>
               
               <motion.p 
-                className="text-2xl font-bold text-slate-800"
+                className="text-2xl font-bold text-blue-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -259,7 +275,7 @@ export default function Home() {
             >
               <h3 className="text-xl font-semibold mb-4">Experience</h3>
               <p className="text-slate-600 mb-6">My professional journey in mechanical engineering and testing systems</p>
-              <a href="/experience" className="text-slate-800 hover:underline font-medium">View Experience →</a>
+              <a href="/experience" className="text-blue-600 hover:underline font-medium">View Experience →</a>
             </motion.div>
             <motion.div 
               className="text-center p-8 rounded-2xl border bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
@@ -278,7 +294,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-xl font-semibold mb-4">Projects</h3>
                 <p className="text-slate-600 mb-6">Technical projects from CFD studies to gear train design</p>
-                <a href="/projects" className="text-slate-800 hover:underline font-medium">View Projects →</a>
+                <a href="/projects" className="text-blue-600 hover:underline font-medium">View Projects →</a>
               </div>
             </motion.div>
           </div>

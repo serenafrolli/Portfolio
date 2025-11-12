@@ -357,7 +357,7 @@ export default function ME240() {
                   href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8199738/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1 break-all"
+                  className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1 break-all"
                 >
                   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8199738/
                   <ExternalLink className="w-4 h-4 flex-shrink-0" />
@@ -369,7 +369,7 @@ export default function ME240() {
                   href="https://www.researchgate.net/publication/334558751_Emission_of_selected_Environmental_Exposure_from_Selective_Laser_Sintering_SLS_Polyamide_Nylon_PA12_3D_printing_Process"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1 break-all"
+                  className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1 break-all"
                 >
                   https://www.researchgate.net/publication/334558751_Emission_of_selected_Environmental_Exposure_from_Selective_Laser_Sintering_SLS_Polyamide_Nylon_PA12_3D_printing_Process
                   <ExternalLink className="w-4 h-4 flex-shrink-0" />

@@ -6,7 +6,7 @@ const LINKS = {
   email: "serenafrolli@example.com",
   linkedin: "https://www.linkedin.com/in/serena-frolli/",
   // github: "https://github.com/serenafrolli",
-  resume: "/resume.pdf",
+  resume: "/Resume_Serena_Frolli.pdf",
 };
 
 export default function Navigation() {
@@ -35,7 +35,7 @@ export default function Navigation() {
               key={path}
               to={path}
               className={`hover:opacity-80 transition-colors ${
-                location.pathname === path ? 'text-slate-800 font-medium' : ''
+                location.pathname === path ? 'text-blue-600 font-medium' : ''
               }`}
             >
               {label}
@@ -61,7 +61,7 @@ export default function Navigation() {
                 onClick={() => setNavOpen(false)}
                 className={`px-2 py-1 rounded transition-colors ${
                   location.pathname === path 
-                    ? 'bg-slate-50 text-slate-800' 
+                    ? 'bg-blue-50 text-blue-600' 
                     : 'bg-slate-100 hover:bg-slate-200'
                 }`}
               >

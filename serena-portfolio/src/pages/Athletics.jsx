@@ -132,7 +132,7 @@ export default function Athletics() {
               href="https://www.thestar.com/news/world/europe/title-ix-creating-opportunities-for-international-athletes/article_658e80ec-5072-5061-b7c2-72e8db071da6.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+              className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
             >
               Title IX Creating Opportunities for International Athletes <ExternalLink className="w-4 h-4" />
             </a>
@@ -141,7 +141,7 @@ export default function Athletics() {
               href="https://nusports.com/sports/womens-cross-country/roster/serena-frolli/12724"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+              className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
             >
               Northwestern University Women's Cross Country - Serena Frolli <ExternalLink className="w-4 h-4" />
             </a>
@@ -150,7 +150,7 @@ export default function Athletics() {
               href="https://worldathletics.org/athletes/italy/serena-frolli-14906209"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+              className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
             >
               World Athletics - Serena Frolli <ExternalLink className="w-4 h-4" />
             </a>

@@ -9,8 +9,8 @@ export function CardContent({ className = '', children }) {
 
 export function Button({ variant='default', asChild=false, className='', children, ...props }) {
   const base = variant === 'outline'
-    ? 'border border-slate-800 bg-white text-slate-800 hover:bg-slate-50'
-    : 'bg-slate-800 text-white hover:bg-slate-900'
+    ? 'border border-blue-600 bg-white text-blue-600 hover:bg-blue-50'
+    : 'bg-blue-600 text-white hover:bg-blue-700'
   const el = (
     <button className={`px-4 py-2 rounded-xl text-sm transition ${base} ${className}`} {...props}>
       {children}
@@ -26,7 +26,7 @@ export function Badge({ children }) {
   )
 }
 
-export function Section({ id, label, children, accentClass = 'bg-gradient-to-b from-purple-500 to-blue-500' }) {
+export function Section({ id, label, children, accentClass = 'bg-gradient-to-b from-blue-600 to-blue-700' }) {
   return (
     <section id={id} className="scroll-mt-24 py-16">
       <div className="max-w-6xl mx-auto px-4">

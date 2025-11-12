@@ -150,7 +150,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -165,7 +165,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-contain p-2"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-amber-100 to-orange-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -180,7 +180,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-contain p-2"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-purple-100 to-pink-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -195,7 +195,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-cover scale-110"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -210,7 +210,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-contain p-2"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -225,7 +225,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-contain p-2"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -240,7 +240,7 @@ function ProjectImage({ project }) {
           className="w-full h-full object-contain p-2"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
@@ -255,13 +255,13 @@ function ProjectImage({ project }) {
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.style.display = 'none'
-            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-blue-100 to-blue-50'
+            e.target.parentElement.className = 'aspect-video bg-gradient-to-br from-slate-100 to-slate-50'
           }}
         />
       </div>
     )
   }
-  return <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-50" />
+  return <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-50" />
 }
 
 export default function Projects() {
@@ -323,7 +323,7 @@ export default function Projects() {
                                 <div className="mt-4">
                                   {p.links.map((l) => (
                                     l.href.startsWith('/') ? (
-                                      <span key={l.label} className="inline-flex items-center gap-1 text-sm text-slate-700 group-hover:text-slate-600 transition-colors">
+                                      <span key={l.label} className="inline-flex items-center gap-1 text-sm text-slate-700 group-hover:text-blue-600 transition-colors">
                                         {l.label} <ChevronRight className="w-3 h-3"/>
                                       </span>
                                     ) : (

@@ -97,17 +97,17 @@ export default function Experience() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="flex-shrink-0 w-[42rem]"
                       >
-                        <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full border-l-4 border-l-slate-800">
+                        <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full border-l-4 border-l-blue-600">
                           <CardContent className="p-6">
                             <div className="flex items-start justify-between gap-4">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 text-sm text-slate-600 mb-1.5">
-                                  <Briefcase className="w-4 h-4 text-slate-800"/>
+                                  <Briefcase className="w-4 h-4 text-blue-600"/>
                                   <span className="font-medium">{exp.period}</span>
                                 </div>
-                                <h3 className="text-lg font-semibold mt-1 text-slate-900 group-hover:text-slate-800 transition-colors">{exp.role}</h3>
+                                <h3 className="text-lg font-semibold mt-1 text-slate-900 group-hover:text-blue-600 transition-colors">{exp.role}</h3>
                                 <div className="text-slate-600 flex items-center gap-2 mt-1.5 text-sm">
-                                  <MapPin className="w-4 h-4 text-slate-800"/> 
+                                  <MapPin className="w-4 h-4 text-blue-600"/> 
                                   <span className="font-medium">{exp.org}</span>
                                   <span className="text-slate-400">•</span>
                                   <span>{exp.location}</span>
@@ -117,7 +117,7 @@ export default function Experience() {
                             <ul className="list-none pl-0 mt-3 space-y-1.5">
                               {exp.bullets.map((b, i) => (
                                 <li key={i} className="flex items-start gap-2 text-slate-700">
-                                  <span className="text-slate-800 font-bold mt-1 flex-shrink-0">→</span>
+                                  <span className="text-blue-600 font-bold mt-1 flex-shrink-0">→</span>
                                   <span>{b}</span>
                                 </li>
                               ))}

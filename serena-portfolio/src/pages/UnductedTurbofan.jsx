@@ -520,7 +520,7 @@ export default function UnductedTurbofan() {
                     href="https://web.archive.org/web/20150402104200/http://aerosociety.com/Assets/Docs/Greener%20by%20Design/%286%29%20Mark%20Taylor.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Mark Taylor - Greener by Design <ExternalLink className="w-4 h-4" />
                   </a>
@@ -536,7 +536,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/propfan-blades-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Propfan Blades <ExternalLink className="w-4 h-4" />
                   </a>
@@ -546,7 +546,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/propfan-engine-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Propfan Engine <ExternalLink className="w-4 h-4" />
                   </a>
@@ -556,7 +556,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/open-rotor-engine-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-blue-600 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Open Rotor Engine <ExternalLink className="w-4 h-4" />
                   </a>

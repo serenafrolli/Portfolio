@@ -10,6 +10,9 @@ import UnductedTurbofan from './pages/UnductedTurbofan'
 import PressureSensorAnalysis from './pages/PressureSensorAnalysis'
 import TitanCFD from './pages/TitanCFD'
 import GearTrainDesign from './pages/GearTrainDesign'
+import StanfordCosmos from './pages/StanfordCosmos'
+import ME240 from './pages/ME240'
+import ME362 from './pages/ME362'
 import Athletics from './pages/Athletics'
 import Contact from './pages/Contact'
 
@@ -29,6 +32,9 @@ export default function App() {
           <Route path="/pressure-sensor-analysis" element={<PressureSensorAnalysis />} />
           <Route path="/titan-cfd" element={<TitanCFD />} />
           <Route path="/gear-train-design" element={<GearTrainDesign />} />
+          <Route path="/stanford-cosmos" element={<StanfordCosmos />} />
+          <Route path="/me240" element={<ME240 />} />
+          <Route path="/me362" element={<ME362 />} />
           <Route path="/athletics" element={<Athletics />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

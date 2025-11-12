@@ -7,6 +7,41 @@ export default function RocketGame() {
   const [score, setScore] = useState(0)
   const [highScore, setHighScore] = useState(0)
   const gameRef = useRef(null)
+  const starsRef = useRef([])
+  const gameStateRef = useRef(gameState)
+  
+  // Keep gameStateRef in sync
+  useEffect(() => {
+    gameStateRef.current = gameState
+  }, [gameState])
+
+  // Initialize stars when canvas is ready
+  useEffect(() => {
+    const initStars = () => {
+      const canvas = canvasRef.current
+      if (canvas && canvas.width && canvas.height) {
+        const stars = []
+        const numStars = Math.floor((canvas.width * canvas.height) / 2000) // Scale stars with canvas size
+        for (let i = 0; i < numStars; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 0.5,
+            opacity: Math.random() * 0.7 + 0.3,
+            twinkleSpeed: Math.random() * 0.02 + 0.01
+          })
+        }
+        starsRef.current = stars
+      }
+    }
+    
+    // Try to initialize immediately
+    initStars()
+    
+    // Also try after a short delay in case canvas isn't ready
+    const timeout = setTimeout(initStars, 100)
+    return () => clearTimeout(timeout)
+  }, [])
 
   useEffect(() => {
     if (gameState === 'playing') {
@@ -39,51 +74,98 @@ export default function RocketGame() {
     
     // Game loop
     const gameLoop = (timestamp) => {
-      if (gameState !== 'playing') return
+      if (gameStateRef.current !== 'playing') {
+        return
+      }
       
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
       // Draw background (space theme)
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height)
-      gradient.addColorStop(0, '#0f172a') // Dark blue
-      gradient.addColorStop(1, '#1e293b') // Lighter blue
+      gradient.addColorStop(0, '#0a0e27') // Darker blue
+      gradient.addColorStop(0.5, '#1a1f3a') // Mid blue
+      gradient.addColorStop(1, '#0f172a') // Dark blue
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       
-      // Draw stars
-      for (let i = 0; i < 50; i++) {
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.8 + 0.2})`
-        ctx.fillRect(
-          (i * 37) % canvas.width,
-          (i * 73) % canvas.height,
-          1,
-          1
-        )
-      }
+      // Draw animated twinkling stars
+      starsRef.current.forEach((star) => {
+        // Twinkle effect - smooth animation
+        star.opacity += star.twinkleSpeed
+        if (star.opacity > 1) {
+          star.opacity = 0.3
+        } else if (star.opacity < 0.3) {
+          star.opacity = 0.3
+        }
+        
+        // Draw star
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`
+        ctx.beginPath()
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2)
+        ctx.fill()
+      })
       
       // Handle input - use keys ref
       if (keysRef.current.ArrowLeft && rocket.x > 0) rocket.x -= rocket.speed
       if (keysRef.current.ArrowRight && rocket.x < canvas.width - rocket.width) rocket.x += rocket.speed
       
-      // Draw rocket
-      ctx.fillStyle = '#3b82f6' // Blue rocket
-      ctx.fillRect(rocket.x, rocket.y, rocket.width, rocket.height)
+      // Draw improved rocket
+      // Rocket body (pointed top)
+      ctx.fillStyle = '#3b82f6'
+      ctx.beginPath()
+      ctx.moveTo(rocket.x + rocket.width / 2, rocket.y) // Top point
+      ctx.lineTo(rocket.x, rocket.y + rocket.height * 0.6) // Left side
+      ctx.lineTo(rocket.x, rocket.y + rocket.height) // Bottom left
+      ctx.lineTo(rocket.x + rocket.width, rocket.y + rocket.height) // Bottom right
+      ctx.lineTo(rocket.x + rocket.width, rocket.y + rocket.height * 0.6) // Right side
+      ctx.closePath()
+      ctx.fill()
       
-      // Rocket details
-      ctx.fillStyle = '#1e40af'
-      ctx.fillRect(rocket.x + 2, rocket.y + 5, rocket.width - 4, 8) // Window
-      ctx.fillStyle = '#ef4444' // Red flame
+      // Rocket window
+      ctx.fillStyle = '#60a5fa'
+      ctx.beginPath()
+      ctx.arc(rocket.x + rocket.width / 2, rocket.y + rocket.height * 0.35, rocket.width * 0.2, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Rocket fins
+      ctx.fillStyle = '#1e293b' // slate-800
+      ctx.beginPath()
+      ctx.moveTo(rocket.x, rocket.y + rocket.height * 0.7)
+      ctx.lineTo(rocket.x - 4, rocket.y + rocket.height)
+      ctx.lineTo(rocket.x, rocket.y + rocket.height)
+      ctx.closePath()
+      ctx.fill()
+      
+      ctx.beginPath()
+      ctx.moveTo(rocket.x + rocket.width, rocket.y + rocket.height * 0.7)
+      ctx.lineTo(rocket.x + rocket.width + 4, rocket.y + rocket.height)
+      ctx.lineTo(rocket.x + rocket.width, rocket.y + rocket.height)
+      ctx.closePath()
+      ctx.fill()
+      
+      // Rocket flame
+      ctx.fillStyle = '#f59e0b'
       ctx.fillRect(rocket.x + 4, rocket.y + rocket.height, 4, 8)
-      ctx.fillRect(rocket.x + 12, rocket.y + rocket.height, 4, 8)
+      ctx.fillRect(rocket.x + rocket.width - 8, rocket.y + rocket.height, 4, 8)
+      ctx.fillStyle = '#ef4444'
+      ctx.fillRect(rocket.x + 5, rocket.y + rocket.height, 3, 6)
+      ctx.fillRect(rocket.x + rocket.width - 8, rocket.y + rocket.height, 3, 6)
       
-      // Spawn obstacles
+      // Spawn obstacles with different types
       if (timestamp - lastObstacleTime > 1000) {
+        const obstacleTypes = ['meteorite', 'asteroid', 'debris', 'comet', 'satellite']
+        const type = obstacleTypes[Math.floor(Math.random() * obstacleTypes.length)]
+        const size = 15 + Math.random() * 15
+        
         obstacles.push({
-          x: Math.random() * (canvas.width - 20),
-          y: -20,
-          width: 20,
-          height: 20
+          x: Math.random() * (canvas.width - size),
+          y: -size,
+          width: size,
+          height: size,
+          type: type,
+          rotation: 0,
+          rotationSpeed: (Math.random() - 0.5) * 0.05
         })
         lastObstacleTime = timestamp
         gameSpeed += 0.1
@@ -93,12 +175,64 @@ export default function RocketGame() {
       for (let i = obstacles.length - 1; i >= 0; i--) {
         const obstacle = obstacles[i]
         obstacle.y += gameSpeed
+        obstacle.rotation += obstacle.rotationSpeed
         
-        // Draw meteorite
-        ctx.fillStyle = '#78716c' // Gray meteorite
-        ctx.beginPath()
-        ctx.arc(obstacle.x + 10, obstacle.y + 10, 10, 0, Math.PI * 2)
-        ctx.fill()
+        ctx.save()
+        ctx.translate(obstacle.x + obstacle.width / 2, obstacle.y + obstacle.height / 2)
+        ctx.rotate(obstacle.rotation)
+        
+        // Draw different obstacle types
+        if (obstacle.type === 'meteorite') {
+          // Gray round meteorite
+          ctx.fillStyle = '#78716c'
+          ctx.beginPath()
+          ctx.arc(0, 0, obstacle.width / 2, 0, Math.PI * 2)
+          ctx.fill()
+          ctx.fillStyle = '#a8a29e'
+          ctx.beginPath()
+          ctx.arc(-obstacle.width / 6, -obstacle.height / 6, obstacle.width / 6, 0, Math.PI * 2)
+          ctx.fill()
+        } else if (obstacle.type === 'asteroid') {
+          // Irregular asteroid shape
+          ctx.fillStyle = '#57534e'
+          ctx.beginPath()
+          ctx.arc(0, 0, obstacle.width / 2, 0, Math.PI * 2)
+          ctx.fill()
+          ctx.fillStyle = '#78716c'
+          ctx.beginPath()
+          ctx.arc(obstacle.width / 4, -obstacle.height / 4, obstacle.width / 4, 0, Math.PI * 2)
+          ctx.fill()
+        } else if (obstacle.type === 'debris') {
+          // Square space debris
+          ctx.fillStyle = '#64748b'
+          ctx.fillRect(-obstacle.width / 2, -obstacle.height / 2, obstacle.width, obstacle.height)
+          ctx.fillStyle = '#475569'
+          ctx.fillRect(-obstacle.width / 3, -obstacle.height / 3, obstacle.width / 1.5, obstacle.height / 1.5)
+        } else if (obstacle.type === 'comet') {
+          // Comet with tail
+          ctx.fillStyle = '#a78bfa'
+          ctx.beginPath()
+          ctx.arc(0, 0, obstacle.width / 2, 0, Math.PI * 2)
+          ctx.fill()
+          // Comet tail
+          ctx.fillStyle = 'rgba(167, 139, 250, 0.4)'
+          ctx.beginPath()
+          ctx.moveTo(0, obstacle.height / 2)
+          ctx.lineTo(-obstacle.width / 3, obstacle.height)
+          ctx.lineTo(obstacle.width / 3, obstacle.height)
+          ctx.closePath()
+          ctx.fill()
+        } else if (obstacle.type === 'satellite') {
+          // Satellite with solar panels
+          ctx.fillStyle = '#cbd5e1'
+          ctx.fillRect(-obstacle.width / 3, -obstacle.height / 2, obstacle.width / 1.5, obstacle.height)
+          // Solar panels
+          ctx.fillStyle = '#1e293b'
+          ctx.fillRect(-obstacle.width / 2, -obstacle.height / 3, obstacle.width / 4, obstacle.height / 1.5)
+          ctx.fillRect(obstacle.width / 4, -obstacle.height / 3, obstacle.width / 4, obstacle.height / 1.5)
+        }
+        
+        ctx.restore()
         
         // Remove obstacles that are off screen
         if (obstacle.y > canvas.height) {
@@ -182,9 +316,10 @@ export default function RocketGame() {
         <div className="relative">
           <canvas
             ref={canvasRef}
-            width={400}
-            height={300}
-            className="border-2 border-slate-200 rounded-lg bg-slate-900"
+            width={800}
+            height={600}
+            className="border-2 border-slate-300 rounded-lg bg-slate-900 shadow-2xl"
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
           
           {/* Game Overlay */}
@@ -194,7 +329,7 @@ export default function RocketGame() {
                 <h4 className="text-xl font-bold mb-4">Ready to Launch?</h4>
                 <button
                   onClick={handleStartGame}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors"
+                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 rounded-lg font-medium transition-colors"
                 >
                   Start Game
                 </button>
@@ -212,7 +347,7 @@ export default function RocketGame() {
                 )}
                 <button
                   onClick={handleRestart}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors"
+                  className="px-6 py-2 bg-slate-600 hover:bg-slate-700 rounded-lg font-medium transition-colors"
                 >
                   Play Again
                 </button>

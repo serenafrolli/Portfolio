@@ -42,7 +42,7 @@ export default function UnductedTurbofan() {
             </h1>
             <div className="text-lg text-slate-200 mb-4">
               <p className="font-semibold">Serena Frolli, Julia Swanson, Connor Capoot, Finn Hagerty</p>
-              <p className="text-sm mt-2 italic">Each team member contributed equally and approves the submission of this project.</p>
+              <p className="text-sm italic">Each team member contributed equally and approves the submission of this project.</p>
             </div>
           </motion.div>
         </div>
@@ -86,10 +86,10 @@ export default function UnductedTurbofan() {
           <div className="grid md:grid-cols-2 gap-8 mb-6">
             <div className="prose prose-lg max-w-none pl-0">
               <p className="text-lg leading-relaxed mb-6">
-                The Unducted Turbofan (UDF) represents an innovative approach to aircraft propulsion, 
-                featuring exposed fan blades that eliminate the traditional nacelle enclosure. This 
-                design offers potential improvements in efficiency, weight reduction, and aerodynamic 
-                performance compared to conventional ducted turbofan engines.
+                This project, conducted as part of the ME 495 Aerodynamics course, modeled and simulated an 
+                unducted turbofan (open rotor) engine to evaluate its aerodynamic performance and sustainability 
+                potential. Unlike conventional turbofans, the open-rotor design removes the nacelle, reducing 
+                weight and improving propulsive efficiency through an ultra-high bypass ratio.
               </p>
               
               <h3 className="text-xl font-semibold mb-3 text-slate-900 mt-8">Intended Use & Application</h3>
@@ -118,9 +118,9 @@ export default function UnductedTurbofan() {
               <img 
                 src={`${import.meta.env.BASE_URL}unductedturbofan.png`}
                 alt="Unducted Turbofan"
-                className="max-w-full h-auto rounded-lg shadow-lg"
+                className="w-full h-auto rounded-lg shadow-lg"
                 onError={(e) => {
-                  console.error('Failed to load image:', e.target.src);
+                  console.error('Failed to load turbofan image:', e.target.src);
                   e.target.style.display = 'none';
                 }}
               />
@@ -520,7 +520,7 @@ export default function UnductedTurbofan() {
                     href="https://web.archive.org/web/20150402104200/http://aerosociety.com/Assets/Docs/Greener%20by%20Design/%286%29%20Mark%20Taylor.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Mark Taylor - Greener by Design <ExternalLink className="w-4 h-4" />
                   </a>
@@ -536,7 +536,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/propfan-blades-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Propfan Blades <ExternalLink className="w-4 h-4" />
                   </a>
@@ -546,7 +546,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/propfan-engine-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Propfan Engine <ExternalLink className="w-4 h-4" />
                   </a>
@@ -556,7 +556,7 @@ export default function UnductedTurbofan() {
                     href="https://grabcad.com/library/open-rotor-engine-1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                    className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                   >
                     Open Rotor Engine <ExternalLink className="w-4 h-4" />
                   </a>
@@ -612,7 +612,7 @@ export default function UnductedTurbofan() {
                   href="https://aviationweek.com/aerospace/evolutionary-trail-open-fan-engine"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                  className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                 >
                   https://aviationweek.com/aerospace/evolutionary-trail-open-fan-engine
                   <ExternalLink className="w-4 h-4" />
@@ -625,7 +625,7 @@ export default function UnductedTurbofan() {
                   href="https://www.geaerospace.com/news/articles/5-things-know-about-cfm-rise-program"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                  className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                 >
                   https://www.geaerospace.com/news/articles/5-things-know-about-cfm-rise-program
                   <ExternalLink className="w-4 h-4" />
@@ -638,7 +638,7 @@ export default function UnductedTurbofan() {
                   href="https://newatlas.com/aircraft/ge-cfm-rise-open-fan/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline underline-offset-4 inline-flex items-center gap-1"
+                  className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
                 >
                   https://newatlas.com/aircraft/ge-cfm-rise-open-fan/
                   <ExternalLink className="w-4 h-4" />

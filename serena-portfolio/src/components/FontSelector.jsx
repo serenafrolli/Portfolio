@@ -112,7 +112,7 @@ export default function FontSelector() {
                   onClick={() => changeFont(font.id)}
                   className={`w-full text-left p-3 rounded-lg border transition-colors ${
                     selectedFont === font.id
-                      ? 'bg-blue-50 border-blue-200'
+                      ? 'bg-slate-50 border-slate-200'
                       : 'hover:bg-gray-50 border-gray-200'
                   }`}
                 >

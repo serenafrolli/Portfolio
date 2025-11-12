@@ -89,7 +89,7 @@ export default function Home() {
               Serena Frolli
             </motion.h1>
             <motion.p 
-              className="text-xl sm:text-2xl text-blue-200 font-medium mt-4"
+              className="text-xl sm:text-2xl text-slate-200 font-medium mt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -170,7 +170,7 @@ export default function Home() {
               </p>
               
               <motion.p 
-                className="text-2xl font-bold text-blue-800"
+                className="text-2xl font-bold text-slate-800"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -259,7 +259,7 @@ export default function Home() {
             >
               <h3 className="text-xl font-semibold mb-4">Experience</h3>
               <p className="text-slate-600 mb-6">My professional journey in mechanical engineering and testing systems</p>
-              <a href="/experience" className="text-blue-800 hover:underline font-medium">View Experience →</a>
+              <a href="/experience" className="text-slate-800 hover:underline font-medium">View Experience →</a>
             </motion.div>
             <motion.div 
               className="text-center p-8 rounded-2xl border bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
@@ -278,7 +278,7 @@ export default function Home() {
               <div className="relative z-10">
                 <h3 className="text-xl font-semibold mb-4">Projects</h3>
                 <p className="text-slate-600 mb-6">Technical projects from CFD studies to gear train design</p>
-                <a href="/projects" className="text-blue-800 hover:underline font-medium">View Projects →</a>
+                <a href="/projects" className="text-slate-800 hover:underline font-medium">View Projects →</a>
               </div>
             </motion.div>
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 import img1 from '../assets/IMG_8820_2.JPG'
 import img2 from '../assets/IMG_8927.JPG'
 import img3 from '../assets/IMG_8928_2.JPG'
@@ -121,6 +122,41 @@ export default function Athletics() {
           </div>
           ))}
         </div>
+
+      {/* Resources Section */}
+      <div className="py-16 px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold text-slate-900 mb-6">Resources</h2>
+          <div className="space-y-4">
+            <a 
+              href="https://www.thestar.com/news/world/europe/title-ix-creating-opportunities-for-international-athletes/article_658e80ec-5072-5061-b7c2-72e8db071da6.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+            >
+              Title IX Creating Opportunities for International Athletes <ExternalLink className="w-4 h-4" />
+            </a>
+            <br />
+            <a 
+              href="https://nusports.com/sports/womens-cross-country/roster/serena-frolli/12724"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+            >
+              Northwestern University Women's Cross Country - Serena Frolli <ExternalLink className="w-4 h-4" />
+            </a>
+            <br />
+            <a 
+              href="https://worldathletics.org/athletes/italy/serena-frolli-14906209"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-800 underline underline-offset-4 inline-flex items-center gap-1"
+            >
+              World Athletics - Serena Frolli <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

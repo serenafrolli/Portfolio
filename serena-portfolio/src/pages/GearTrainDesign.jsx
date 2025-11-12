@@ -22,7 +22,7 @@ export default function GearTrainDesign() {
   return (
     <div className="min-h-screen site-bg text-slate-900">
       {/* Header */}
-      <div className="text-white" style={{ background: 'linear-gradient(to right, #1e293b, #0f172a)' }}>
+      <div className="text-white project-header-bg">
         <div className="max-w-6xl mx-auto px-4 py-16">
           <Link to="/projects" className="inline-flex items-center gap-2 text-slate-300 hover:text-white mb-8">
             <ArrowLeft className="w-4 h-4" />

@@ -33,3 +33,9 @@ body {
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Project header background - ensures it displays on GitHub Pages */
+.project-header-bg {
+  background: linear-gradient(to right, #1e293b, #0f172a) !important;
+  background-color: #1e293b !important;
+}

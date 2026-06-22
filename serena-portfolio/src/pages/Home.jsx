@@ -1,9 +1,12 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Mail, Link as LinkIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Mail, Link as LinkIcon, ArrowDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Button } from '../components/UI'
+import FlowField from '../components/FlowField'
 import serenaPhoto from '../assets/serena-photo.jpg'
 import nuLogo from '../assets/NU-logo.png'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
 
 const LINKS = {
   email: "serenafrolli2026@u.northwestern.edu",
@@ -11,274 +14,229 @@ const LINKS = {
   // github: "https://github.com/serenafrolli",
 };
 
-
+const ROLES = [
+  'a mechanical engineer',
+  'a runner',
+  'a project manager',
+  'an aerospace enthusiast',
+]
 
 export default function Home() {
-  const containerRef = useRef(null)
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  const [videoError, setVideoError] = useState(false)
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
+  const heroRef = useRef(null)
 
-  const nameY = useTransform(scrollYProgress, [0, 0.3], [0, -100])
-  const nameOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const bioOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1])
-  const bioY = useTransform(scrollYProgress, [0.2, 0.4], [50, 0])
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1, 1.1])
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      tl.fromTo('.hero-kicker', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, delay: 0.3 })
+        .fromTo('.hero-line', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.18 }, '-=0.3')
+        .fromTo('.hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.8 }, '-=0.2')
+
+      // rotating roles — each word flows in from the left like a streamline,
+      // holds, then exits right
+      const words = gsap.utils.toArray('.role-word')
+      const cycle = gsap.timeline({ repeat: -1, delay: 1.6 })
+      words.forEach((w) => {
+        cycle.fromTo(w,
+          { opacity: 0, x: -40, filter: 'blur(4px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out' })
+        cycle.to(w,
+          { opacity: 0, x: 40, filter: 'blur(4px)', duration: 0.5, ease: 'power3.in' },
+          '+=1.8')
+      })
+    }, heroRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <div ref={containerRef} className="min-h-screen site-bg text-slate-900 relative overflow-hidden">
-      {/* Hero Section with Background Image */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        {/* Background Video with Overlay */}
-        <motion.div 
-          className="absolute inset-0 z-0 overflow-hidden"
-          style={{ scale: backgroundScale }}
-        >
-          {!videoError && (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: `scale(${backgroundScale})` }}
-              onLoadStart={() => {
-                console.log('Video loading started');
-                setVideoLoaded(false);
-              }}
-              onCanPlay={() => {
-                console.log('Video can play');
-                setVideoLoaded(true);
-              }}
-              onError={(e) => {
-                console.log('Video failed to load:', e);
-                setVideoError(true);
-              }}
-            >
-              <source src="/background-video.mp4" type="video/mp4" />
-              <source src="/background-video.mov" type="video/quicktime" />
-            </video>
-          )}
-          {/* Fallback background image if video doesn't load or fails */}
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(rocket_hor.jpg)`
-            }}
-          />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40" />
-        </motion.div>
+    <div className="min-h-screen site-bg text-navy-800">
+      {/* Hero — full-bleed CFD flow field */}
+      <section ref={heroRef} className="relative min-h-screen bg-navy-900 overflow-hidden flex items-center">
+        <FlowField />
 
-        {/* Centered Name */}
-        <motion.div 
-          className="absolute inset-0 flex items-center justify-center z-10"
-          style={{ y: nameY, opacity: nameOpacity }}
-        >
-          <div className="text-center">
-            <motion.h1 
-              className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tight leading-tight text-white"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              Serena Frolli
-            </motion.h1>
-            <motion.p 
-              className="text-xl sm:text-2xl text-blue-200 font-medium mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              Mechanical Engineer - Aerospace Enthusiast - Runner 
-            </motion.p>
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-16 pb-24">
+          <p className="hero-kicker tech-label text-accent-light mb-6">
+            Northwestern University · BS/MS Mechanical Engineering
+          </p>
+          <h1 className="font-display font-bold tracking-tight text-paper leading-[1.05] text-5xl sm:text-7xl md:text-8xl">
+            <span className="hero-line block">Ciao!</span>
+            <span className="hero-line block">I'm Serena</span>
+          </h1>
+          <div className="hero-line relative h-24 sm:h-16 md:h-20 mt-4 overflow-hidden">
+            {ROLES.map((role, i) => (
+              <span
+                key={role}
+                className="role-word absolute inset-0 flex items-center font-display font-medium text-accent-light text-3xl sm:text-4xl md:text-5xl"
+                style={{ opacity: i === 0 ? undefined : 0 }}
+              >
+                {role}
+              </span>
+            ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <div className="flex flex-col items-center text-white">
-            <span className="text-sm mb-2">Scroll to explore</span>
-            <motion.div 
-              className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+        <div className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center text-navy-300">
+            <span className="tech-label mb-3">Scroll to explore</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <motion.div 
-                className="w-1 h-3 bg-white rounded-full mt-2"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
+              <ArrowDown className="w-4 h-4" />
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Bio Section */}
-      <section className="relative z-10 bg-white">
-        <div className="w-full px-48 py-20">
-          <motion.div 
-            className="text-center"
-            style={{ opacity: bioOpacity, y: bioY }}
+      <section className="relative z-10 bg-paper">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 py-20 sm:py-28">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-12"
           >
-            <motion.h2 
-              className="text-3xl sm:text-4xl font-bold text-slate-900 mb-8"
+            <p className="tech-label text-navy-500 mb-3">01 / About</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-navy-900">Ciao!</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-10 md:gap-12 items-start">
+            <motion.div
+              className="text-navy-700 leading-relaxed md:col-span-2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
               viewport={{ once: true }}
             >
-              Ciao! 
-            </motion.h2>
-            
-            <div className="grid md:grid-cols-3 gap-4 items-start w-full">
-              <motion.div 
-                className="prose prose-lg prose-max-w-none text-slate-700 leading-relaxed text-left md:col-span-2"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
               <p className="text-lg mb-6">
-                My name is Serena Frolli and I am a fourth-year student at Northwestern University pursuing a Bachelor of Science in Mechanical Engineering as well as a Master of Science in Mechanical Engineering 
+                My name is Serena Frolli and I am a fourth-year student at Northwestern University pursuing a Bachelor of Science in Mechanical Engineering as well as a Master of Science in Mechanical Engineering
                 within the combined Bachelor's and Master's program at Northwestern.
               </p>
-              
+
               <p className="text-lg mb-6">
-                I am an aspiring professional in the aerospace sector with a passion for engineering that pushes 
+                I am an aspiring professional in the aerospace sector with a passion for engineering that pushes
                 the boundaries of technology and has a real impact on the world.
               </p>
-              
+
               <p className="text-lg mb-6">
-                Outside of engineering, up to my Junior year, I was a D1 Cross Country student-athlete at my school. 
+                Outside of engineering, up to my Junior year, I was a D1 Cross Country student-athlete at my school.
                 I am in love with running as a sport, it has shaped who I am today.
               </p>
-              
+
               <p className="text-lg mb-8">
-                I am originally from Genova, Italy, and I attended high school at the Istituto di Istruzione Superiore 
-                Savoia Benincasa in Ancona. This portfolio highlights the projects I have worked on and the 
+                I am originally from Genova, Italy, and I attended high school at the Istituto di Istruzione Superiore
+                Savoia Benincasa in Ancona. This portfolio highlights the projects I have worked on and the
                 skills I have acquired in my academic career and beyond.
               </p>
-              
-              <motion.p 
-                className="text-2xl font-bold text-blue-800"
-                initial={{ opacity: 0, scale: 0.9 }}
+
+              <motion.p
+                className="font-display text-2xl font-bold text-navy-700"
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
               >
                 Per Aspera Ad Astra!
               </motion.p>
+
+              {/* Contact Buttons */}
+              <motion.div
+                className="mt-10 flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <a href={`mailto:${LINKS.email}`}>
+                  <Button>
+                    <span className="inline-flex items-center gap-2">
+                      <Mail className="w-4 h-4"/> Contact
+                    </span>
+                  </Button>
+                </a>
+                <a href={LINKS.linkedin}>
+                  <Button variant="outline">
+                    <span className="inline-flex items-center gap-2">
+                      <LinkIcon className="w-4 h-4"/> LinkedIn
+                    </span>
+                  </Button>
+                </a>
+              </motion.div>
             </motion.div>
 
             {/* Image Section */}
-            <motion.div 
-              className="flex justify-end items-start pr-0"
+            <motion.div
+              className="flex justify-center md:justify-end"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.25 }}
               viewport={{ once: true }}
             >
-              <div className="relative">
-                {/* Serena's Photo */}
-                <img 
+              <div className="relative mt-6 md:mt-2">
+                <div className="absolute -inset-3 border border-navy-200 rounded-2xl translate-x-4 translate-y-4 pointer-events-none" />
+                <img
                   src={serenaPhoto}
                   alt="Serena Frolli - Mechanical Engineer"
-                  className="w-80 h-96 object-cover rounded-2xl shadow-lg"
+                  className="relative w-72 sm:w-80 h-96 object-cover rounded-2xl shadow-xl"
                 />
-                
-                {/* Northwestern Logo */}
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-white rounded-full shadow-lg border-2 border-white flex items-center justify-center">
-                  <img 
+                <div className="absolute -top-10 -right-8 sm:-right-10 w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-full shadow-lg flex items-center justify-center">
+                  <img
                     src={nuLogo}
                     alt="Northwestern University Logo"
-                    className="w-28 h-28 object-contain"
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
                   />
                 </div>
               </div>
             </motion.div>
           </div>
-
-          {/* Contact Buttons */}
-          <motion.div 
-            className="mt-12 flex flex-wrap justify-center gap-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <a href={`mailto:${LINKS.email}`}>
-              <Button>
-                <span className="inline-flex items-center gap-2">
-                  <Mail className="w-4 h-4"/> Contact
-                </span>
-              </Button>
-            </a>
-            <a href={LINKS.linkedin}>
-              <Button variant="outline">
-                <span className="inline-flex items-center gap-2">
-                  <LinkIcon className="w-4 h-4"/> LinkedIn
-                </span>
-              </Button>
-            </a>
-          </motion.div>
-
-
-          </motion.div>
         </div>
       </section>
 
       {/* Quick Links */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <motion.h2 
-            className="text-2xl sm:text-3xl font-semibold tracking-tight mb-12 text-center"
+      <section className="py-20 sm:py-28 bg-navy-900 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="mb-12 text-center"
           >
-            Explore My Work
-          </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div 
-              className="text-center p-8 rounded-2xl border bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+            <p className="tech-label text-accent-light mb-3">02 / Work</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-paper">Explore My Work</h2>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <motion.div
+              className="lift p-8 rounded-2xl border border-navy-700 bg-navy-800/80 backdrop-blur"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-semibold mb-4">Experience</h3>
-              <p className="text-slate-600 mb-6">My professional journey in mechanical engineering and testing systems</p>
-              <a href="/experience" className="text-blue-800 hover:underline font-medium">View Experience →</a>
+              <h3 className="text-xl font-semibold mb-3 text-paper">Experience</h3>
+              <p className="text-navy-200 mb-6">My professional journey in mechanical engineering and testing systems</p>
+              <Link to="/experience" className="tech-label text-accent-light hover:text-paper transition-colors">View Experience →</Link>
             </motion.div>
-            <motion.div 
-              className="text-center p-8 rounded-2xl border bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
+            <motion.div
+              className="lift p-8 rounded-2xl border border-navy-700 bg-navy-800/80 backdrop-blur relative overflow-hidden"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center opacity-10"
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-15"
                 style={{ backgroundImage: 'url(METALS_FinalRender.png)' }}
               />
-              
-              {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-semibold mb-4">Projects</h3>
-                <p className="text-slate-600 mb-6">Technical projects from CFD studies to gear train design</p>
-                <a href="/projects" className="text-blue-800 hover:underline font-medium">View Projects →</a>
+                <h3 className="text-xl font-semibold mb-3 text-paper">Projects</h3>
+                <p className="text-navy-200 mb-6">Technical projects from CFD studies to gear train design</p>
+                <Link to="/projects" className="tech-label text-accent-light hover:text-paper transition-colors">View Projects →</Link>
               </div>
             </motion.div>
           </div>

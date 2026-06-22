@@ -1,6 +1,5 @@
 import { Mail, Link as LinkIcon } from 'lucide-react'
 import { Card, CardContent, Button, Section } from '../components/UI'
-import RocketGame from '../components/RocketGame'
 
 const LINKS = {
   email: "serenafrolli2026@u.northwestern.edu",
@@ -10,13 +9,13 @@ const LINKS = {
 
 export default function Contact() {
   return (
-    <div className="min-h-screen site-bg text-slate-900">
+    <div className="min-h-screen site-bg text-navy-800">
       <Section label="Get in touch">
         <Card>
-          <CardContent className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <CardContent className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h4 className="text-lg font-semibold">Let's build something.</h4>
-              <p className="text-slate-600 mt-1">Open to Mechanical/TPM roles in aerospace, electrification, and test engineering.</p>
+              <h4 className="text-xl font-semibold text-navy-900">Let's build something.</h4>
+              <p className="text-navy-600 mt-1">Open to Mechanical/TPM roles in aerospace, electrification, and test engineering.</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <a href={`mailto:${LINKS.email}`}>
@@ -37,9 +36,6 @@ export default function Contact() {
             </div>
           </CardContent>
         </Card>
-        
-        {/* Rocket Game */}
-        <RocketGame />
       </Section>
     </div>
   );

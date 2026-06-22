@@ -1,0 +1,64 @@
+[
+  {
+    "id": "nasa-metals",
+    "title": "NASA Big Idea Challenge: METALS",
+    "period": "2024",
+    "description": "Advanced the development of inflatable metal systems for lunar infrastructure through innovative Free Inner Pressure Deformation (FIDU) technology.",
+    "highlights": [
+      "Received $146,000 funding as one of six finalist schools",
+      "Developed inflatable metal systems for lunar infrastructure",
+      "Optmized the geometry of the inflatables for stress optimization",
+      "Manufactured 50+ inflatables with various materials and shapes",
+      "Received the ARTEMIS Award as top prize in the Challenge"
+    ],
+    "image": "METALS_FinalRender.png",
+    "logo": "",
+    "links": [
+      {
+        "label": "View Details",
+        "href": "/nasa-metals"
+      }
+    ]
+  },
+  {
+    "id": "ul-battery-drop-tester",
+    "title": "UL Battery Drop Tester",
+    "period": "2025–2026",
+    "description": "Senior Mechanical Engineering Capstone, sponsored by UL Solutions: a remotely actuated battery drop tester that replaces the manual apparatus at UL's Small Battery Test Center, fully isolating the operator while delivering repeatable face, edge, and corner drops with adjustable height.",
+    "highlights": [
+      "Six-person Northwestern ME Capstone team, sponsored by UL Solutions, over two quarters",
+      "Pneumatic piston release & orientation mechanism with motorized lead-screw height adjustment",
+      "RF remote actuation fully isolating the operator from the test environment",
+      "Achieved 93.3% (flat), 86.7% (edge), and 93.3% (corner) drop success across 15 trials each"
+    ],
+    "image": "",
+    "logo": "UL_Mark.png",
+    "links": []
+  },
+  {
+    "id": "titan-cfd",
+    "title": "Titan Rotor/Airfoil CFD Studies",
+    "period": "2024–2025",
+    "description": "Set up RANS CFD for Titan atmosphere propeller/airfoil studies; computed Reynolds numbers, validated against literature, and compared to experimental trends.",
+    "highlights": [
+      "Meshing strategy & y+ control",
+      "Post-processing scripts for lift/drag"
+    ],
+    "image": "",
+    "logo": "",
+    "links": []
+  },
+  {
+    "id": "gear-train",
+    "title": "Two‑Stage Gear Train Design",
+    "period": "2025",
+    "description": "Designed reduction gearbox (70 kW @ 2600 rpm → ~400 rpm). Included AGMA bending/contact stress checks, fit/tolerance selection (h6/p6), and FEA sanity checks.",
+    "highlights": [
+      "Sizing + safety factors",
+      "Face width factors 13/12 (pinion/gear)"
+    ],
+    "image": "",
+    "logo": "",
+    "links": []
+  }
+]

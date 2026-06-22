@@ -5,25 +5,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50:  "#F4EEFF",
-          100: "#EAE3FF",
-          200: "#D6C7FF",
-          300: "#B89CFF",
-          400: "#9B76FD",
-          500: "#8B5CF6",   // primary violet
-          600: "#6D41E6",
-          700: "#5B21B6",   // deep violet
-          800: "#471A8A",
-          900: "#351465",
+        navy: {
+          50:  "#F0F4FA",
+          100: "#DCE6F5",
+          200: "#B9CCE8",
+          300: "#8AA8D4",
+          400: "#5B82BC",
+          500: "#3A62A0",
+          600: "#2A4A82",
+          700: "#1E3563",
+          800: "#142447",
+          900: "#0B1730",
+          950: "#060E1F",
         },
-        neutral: {
-          50:  "#FFFFFF",    // page background (white)
-          200: "#E5E7EB",
-          400: "#9CA3AF",
-          600: "#4B5563",    // body text
-          800: "#1F2937",    // headings
+        accent: {
+          DEFAULT: "#4F8EF7",
+          light: "#9DC1FB",
         },
+        paper: "#F7F9FC",
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
       },
     },
   },

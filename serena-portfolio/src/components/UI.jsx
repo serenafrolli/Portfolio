@@ -1,6 +1,6 @@
 // --- Lightweight UI primitives ---
 export function Card({ className = '', children }) {
-  return <div className={`rounded-2xl border shadow-sm bg-white ${className}`}>{children}</div>
+  return <div className={`rounded-2xl border border-navy-100 shadow-sm bg-white lift ${className}`}>{children}</div>
 }
 
 export function CardContent({ className = '', children }) {
@@ -9,10 +9,10 @@ export function CardContent({ className = '', children }) {
 
 export function Button({ variant='default', asChild=false, className='', children, ...props }) {
   const base = variant === 'outline'
-    ? 'border border-blue-800 bg-white text-blue-800 hover:bg-blue-50'
-    : 'bg-blue-800 text-white hover:bg-blue-900'
+    ? 'border border-navy-700 bg-transparent text-navy-700 hover:bg-navy-700 hover:text-paper'
+    : 'bg-navy-800 text-paper hover:bg-navy-900'
   const el = (
-    <button className={`px-4 py-2 rounded-xl text-sm transition ${base} ${className}`} {...props}>
+    <button className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-300 ${base} ${className}`} {...props}>
       {children}
     </button>
   )
@@ -22,16 +22,16 @@ export function Button({ variant='default', asChild=false, className='', childre
 
 export function Badge({ children }) {
   return (
-    <span className="text-xs rounded-full px-2 py-1 border border-blue-200 bg-blue-50 text-blue-800">{children}</span>
+    <span className="tech-label rounded-full px-3 py-1 border border-navy-200 bg-navy-50 text-navy-700">{children}</span>
   )
 }
 
-export function Section({ id, label, children, accentClass = 'bg-gradient-to-b from-purple-500 to-blue-500' }) {
+export function Section({ id, label, children }) {
   return (
-    <section id={id} className="scroll-mt-24 py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-6 flex items-center gap-2">
-          <span className={`inline-block w-2 h-6 rounded ${accentClass}`} />
+    <section id={id} className="scroll-mt-24 py-16 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-10 flex items-center gap-3 text-navy-900">
+          <span className="inline-block w-10 h-[3px] rounded bg-accent" />
           {label}
         </h2>
         {children}

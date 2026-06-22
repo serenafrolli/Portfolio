@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import img1 from '../assets/IMG_8820_2.JPG'
 import img2 from '../assets/IMG_8927.JPG'
 import img3 from '../assets/IMG_8928_2.JPG'
@@ -45,77 +45,91 @@ const athleticSections = [
 
 export default function Athletics() {
   const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
-  const titleScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const textOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
-  const textY = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
 
   return (
     <div className="min-h-screen" ref={containerRef}>
       {/* Hero Section */}
-      <div className="bg-white py-3">
-        <div className="max-w-6xl mx-auto px-8 flex justify-start items-center min-h-[60px]">
-          {/* Title */}
-          <motion.h1 
-            className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-800 mb-0 text-center whitespace-nowrap"
-            style={{
-              y: titleY,
-              scale: titleScale,
-              opacity: titleOpacity
-            }}
+      <div className="bg-navy-900 blueprint-grid py-16 sm:py-24">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8">
+          <motion.p
+            className="tech-label text-accent-light mb-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            Northwestern Cross Country
+          </motion.p>
+          <motion.h1
+            className="text-3xl sm:text-5xl font-bold tracking-tight text-paper mb-6"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             D1 Student-Athlete Experience
           </motion.h1>
-
-          {/* Description */}
           <motion.p
-            className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed"
-            style={{
-              opacity: textOpacity,
-              y: textY
-            }}
+            className="text-lg sm:text-xl text-navy-200 leading-relaxed"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
           >
             Being a D1 Cross Country Student-Athlete at Northwestern University has been one of the most enriching experiences of my life. Here are some skills and lessons that I have learned thanks to my sport throughout the years.
           </motion.p>
         </div>
       </div>
 
-
-
       {/* Image Sections */}
       <div className="space-y-0">
         {athleticSections.map((section, index) => (
           <div key={section.id} className="relative">
             {/* Image Section with Title at Bottom */}
-            <div className="relative h-screen">
-              <img 
-                src={section.image} 
-                alt={section.title} 
+            <div className="relative h-[70vh] sm:h-screen overflow-hidden">
+              <motion.img
+                src={section.image}
+                alt={section.title}
                 className="absolute inset-0 w-full h-full object-cover"
+                initial={{ scale: 1.08 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 1.4, ease: 'easeOut' }}
+                viewport={{ once: true }}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-900/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
                 <div className="max-w-4xl mx-auto">
-                  <h2 className="text-4xl font-bold text-white mb-4">
+                  <motion.p
+                    className="tech-label text-accent-light mb-2"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </motion.p>
+                  <motion.h2
+                    className="text-3xl sm:text-4xl font-bold text-white mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.1 }}
+                    viewport={{ once: true }}
+                  >
                     {section.title}
-                  </h2>
+                  </motion.h2>
                 </div>
               </div>
             </div>
 
             {/* Content Section */}
-            <div className="py-16 px-8 bg-slate-100">
+            <div className="py-14 sm:py-16 px-6 sm:px-8 bg-paper">
               <div className="max-w-4xl mx-auto">
-                <p className="text-lg text-slate-700 leading-relaxed">
+                <motion.p
+                  className="text-lg text-navy-700 leading-relaxed"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  viewport={{ once: true }}
+                >
                   {section.content}
-                </p>
+                </motion.p>
               </div>
             </div>
           </div>

@@ -15,6 +15,11 @@ build/
 # IDE
 .vscode/
 .idea/
+.claude/
+
+# Stray root-level npm files (real project lives in serena-portfolio/)
+/package.json
+/package-lock.json
 
 # Logs
 *.log

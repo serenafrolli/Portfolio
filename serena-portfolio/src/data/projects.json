@@ -44,9 +44,11 @@
       "Meshing strategy & y+ control",
       "Post-processing scripts for lift/drag"
     ],
-    "image": "",
+    "image": "yVelocity9degAOA.jpg",
     "logo": "",
-    "links": []
+    "links": [
+      { "label": "View Details", "href": "/titan-cfd" }
+    ]
   },
   {
     "id": "gear-train",

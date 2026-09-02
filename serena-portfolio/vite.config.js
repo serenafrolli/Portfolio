@@ -45,5 +45,7 @@ function projectsApi() {
 
 export default defineConfig({
   plugins: [react(), projectsApi()],
-  base: '/Portfolio/', // repo name, case-sensitive
+  // Vercel serves the site from the domain root. (GitHub Pages needed '/Portfolio/'
+  // because the site lived under the repo-name subpath.)
+  base: '/',
 })

@@ -29,7 +29,7 @@
       "Six-person Northwestern ME Capstone team, sponsored by UL Solutions, over two quarters",
       "Pneumatic piston release & orientation mechanism with motorized lead-screw height adjustment",
       "RF remote actuation fully isolating the operator from the test environment",
-      "Achieved 93.3% (flat), 86.7% (edge), and 93.3% (corner) drop success across 15 trials each"
+      "Achieved reliable drops across all three battery configurations — flat, edge, and corner"
     ],
     "image": "",
     "logo": "UL_Mark.png",
@@ -49,18 +49,5 @@
     "links": [
       { "label": "View Details", "href": "/titan-cfd" }
     ]
-  },
-  {
-    "id": "gear-train",
-    "title": "Two‑Stage Gear Train Design",
-    "period": "2025",
-    "description": "Designed reduction gearbox (70 kW @ 2600 rpm → ~400 rpm). Included AGMA bending/contact stress checks, fit/tolerance selection (h6/p6), and FEA sanity checks.",
-    "highlights": [
-      "Sizing + safety factors",
-      "Face width factors 13/12 (pinion/gear)"
-    ],
-    "image": "",
-    "logo": "",
-    "links": []
   }
 ]

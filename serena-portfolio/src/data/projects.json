@@ -10,7 +10,7 @@
       "Piloted hover in and out of ground effect",
       "Autonomous yaw, x/y and altitude hold from ArUco camera tracking"
     ],
-    "image": "",
+    "image": "quad-aruco-tracking.jpg",
     "logo": "",
     "links": [
       { "label": "View Details", "href": "/quadrotor" }

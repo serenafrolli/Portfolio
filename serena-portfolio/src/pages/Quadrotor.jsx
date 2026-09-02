@@ -37,16 +37,28 @@ const weeks = [
     w: '02',
     title: 'Complementary filter, joystick & safety',
     body: 'Fused the accelerometer angles with integrated gyro rates in a complementary filter, weighted by a tunable constant A — the accelerometer anchors the long-term angle while the gyro supplies fast response without its drift. Interfaced a joystick through shared memory alongside the receiver process, then added the safety layer: abort on gyro rates over 300 °/s, roll or pitch beyond 45°, a kill button, or a joystick timeout longer than 0.35 s.',
+    fig: {
+      src: 'quad-complementary-filter.png',
+      caption: 'Why fusion is needed — the raw accelerometer angle (blue) is noisy, the integrated gyro (red) drifts away, and the filtered output (orange) tracks cleanly',
+    },
   },
   {
     w: '03',
     title: 'PID control on pitch',
     body: 'Built the pitch controller one term at a time — proportional torque against angle error, derivative damping against gyro rate to stop overshoot, and an integral term (with saturation) to erase steady-state offset — then combined them into a full PID driving the four motor commands.',
+    fig: {
+      src: 'quad-pid-full.png',
+      caption: 'Full PID on the rig — large pitch disturbances early on settle to level flight, with motor commands opposing the tilt',
+    },
   },
   {
     w: '04',
     title: 'Motors, props & tuning on the rig',
     body: 'Assembled the airframe, verified propeller orientation, and tuned on the test rig. Isolating the terms made their behavior tangible: derivative-only control felt viscous, actively resisting any pitch motion. Tuned P up to the onset of oscillation, then damped with D, and characterized how the IMU low-pass filter bandwidth changed the measured angle.',
+    fig: {
+      src: 'quad-pd-flight.png',
+      caption: 'Full PD controller in flight — holding attitude while tracking commanded pitch from the joystick',
+    },
   },
   {
     w: '05',
@@ -67,6 +79,10 @@ const weeks = [
     w: '08',
     title: 'Camera integration — autonomous yaw',
     body: 'Added an overhead webcam tracking an ArUco marker on the airframe, streaming x, y, z and yaw into the flight code. Closed the first autonomy loop on heading: the camera yaw estimate feeds a high-level controller that commands the yaw-rate loop underneath it.',
+    fig: {
+      src: 'quad-camera-yaw.png',
+      caption: 'First closed camera loop — measured yaw (blue) against the commanded yaw rate (orange), whose spikes show the high-level gain set too aggressively at 0.1',
+    },
   },
   {
     w: '09',
@@ -178,7 +194,10 @@ export default function Quadrotor() {
                 </ul>
               </div>
             </div>
-            <Figure caption="Quadrotor on the test rig" />
+            <Figure
+              src="quad-aruco-tracking.jpg"
+              caption="ArUco pose estimation — the overhead camera resolving the drone's x, y, z and yaw in real time"
+            />
           </div>
         </motion.section>
 
@@ -262,13 +281,11 @@ export default function Quadrotor() {
                   <p className="tech-label text-navy-400 mb-1">Week {wk.w}</p>
                   <h3 className="text-xl font-semibold text-navy-900 mb-2">{wk.title}</h3>
                   <p className="text-navy-700 leading-relaxed">{wk.body}</p>
+                  {wk.fig ? <Figure src={wk.fig.src} caption={wk.fig.caption} /> : null}
                 </motion.div>
               ))}
             </div>
           </div>
-
-          <Figure caption="Pitch tracking — commanded vs. filtered angle" />
-          <Figure caption="Camera z oscillation and blended thrust command" />
         </motion.section>
 
         {/* Outcome */}

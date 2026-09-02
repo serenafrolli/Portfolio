@@ -113,7 +113,7 @@ export default function Connect() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            Places I Have Been
+            Extra
           </motion.h1>
           <motion.p
             className="text-lg text-navy-200"

@@ -6,6 +6,8 @@ import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import NASAMETALS from './pages/NASA-METALS'
 import TitanCFD from './pages/TitanCFD'
+import Quadrotor from './pages/Quadrotor'
+import ME240 from './pages/ME240'
 // Athletics hidden for now — restore the import and route to reactivate
 // import Athletics from './pages/Athletics'
 import Contact from './pages/Contact'
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/nasa-metals" element={<NASAMETALS />} />
           <Route path="/titan-cfd" element={<TitanCFD />} />
+          <Route path="/quadrotor" element={<Quadrotor />} />
+          <Route path="/me240" element={<ME240 />} />
           {/* Athletics page hidden for now — uncomment to reactivate */}
           {/* <Route path="/athletics" element={<Athletics />} /> */}
           <Route path="/contact" element={<Contact />} />

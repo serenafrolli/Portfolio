@@ -17,8 +17,9 @@ const LINKS = {
 const ROLES = [
   'a mechanical engineer',
   'a runner',
-  'a project manager',
-  'an aerospace enthusiast',
+  'a program manager',
+  'a student pilot',
+  'a pasta lover',
 ]
 
 export default function Home() {

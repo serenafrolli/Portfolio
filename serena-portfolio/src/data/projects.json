@@ -1,23 +1,19 @@
 [
   {
-    "id": "nasa-metals",
-    "title": "NASA Big Idea Challenge: METALS",
-    "period": "2024",
-    "description": "Advanced the development of inflatable metal systems for lunar infrastructure through innovative Free Inner Pressure Deformation (FIDU) technology.",
+    "id": "quadrotor",
+    "title": "Quadrotor Design and Control",
+    "period": "Mar – Jun 2026",
+    "description": "CS/ME 410: built a quadrotor's entire flight stack in C over ten weeks — from raw IMU registers to a vehicle that holds its own position under an overhead camera.",
     "highlights": [
-      "Received $146,000 funding as one of six finalist schools",
-      "Developed inflatable metal systems for lunar infrastructure",
-      "Optmized the geometry of the inflatables for stress optimization",
-      "Manufactured 50+ inflatables with various materials and shapes",
-      "Received the ARTEMIS Award as top prize in the Challenge"
+      "Complementary filter fusing accelerometer and gyro for drift-free attitude",
+      "Tuned PID control on pitch, roll and yaw with full safety interlocks",
+      "Piloted hover in and out of ground effect",
+      "Autonomous yaw, x/y and altitude hold from ArUco camera tracking"
     ],
-    "image": "METALS_FinalRender.png",
+    "image": "",
     "logo": "",
     "links": [
-      {
-        "label": "View Details",
-        "href": "/nasa-metals"
-      }
+      { "label": "View Details", "href": "/quadrotor" }
     ]
   },
   {
@@ -48,6 +44,59 @@
     "logo": "",
     "links": [
       { "label": "View Details", "href": "/titan-cfd" }
+    ]
+  },
+  {
+    "id": "nasa-student-launch",
+    "title": "NASA Student Launch: Active Drag System",
+    "period": "2024–2025",
+    "description": "Wind tunnel testing for the NUSTARS Active Drag System on Northwestern's 2025 NASA Student Launch competition rocket, mapping actuation states to drag coefficients.",
+    "highlights": [
+      "Mapped ADS actuation states to drag coefficients through wind tunnel testing",
+      "Optimized a 16-hour test schedule to maximize design points",
+      "Swept velocity up to Mach 0.31, angle of attack, and actuation state",
+      "Analyzed CFD vs. empirical discrepancies to inform future simulations"
+    ],
+    "image": "rocket_hor.jpg",
+    "logo": "",
+    "links": []
+  },
+  {
+    "id": "nasa-metals",
+    "title": "NASA Big Idea Challenge: METALS",
+    "period": "2024",
+    "description": "Advanced the development of inflatable metal systems for lunar infrastructure through innovative Free Inner Pressure Deformation (FIDU) technology.",
+    "highlights": [
+      "Received $146,000 funding as one of six finalist schools",
+      "Developed inflatable metal systems for lunar infrastructure",
+      "Optmized the geometry of the inflatables for stress optimization",
+      "Manufactured 50+ inflatables with various materials and shapes",
+      "Received the ARTEMIS Award as top prize in the Challenge"
+    ],
+    "image": "METALS_FinalRender.png",
+    "logo": "",
+    "links": [
+      {
+        "label": "View Details",
+        "href": "/nasa-metals"
+      }
+    ]
+  },
+  {
+    "id": "me240",
+    "title": "Mechanical Design and Manufacturing: ME240",
+    "period": "2023",
+    "description": "Designed and tested a solenoid-actuated robot arm end effector that lifts an egg without breaking it, iterating with CAD, FEA, and physical load testing.",
+    "highlights": [
+      "Redesigned static and actuated components for a TinkerKit Braccio arm",
+      "Reconciled FEA against physical testing when the two disagreed",
+      "Reduced part weight across design iterations",
+      "Evaluated PLA as a lower-emission alternative to SLS Nylon 12"
+    ],
+    "image": "robot arm.png",
+    "logo": "",
+    "links": [
+      { "label": "View Details", "href": "/me240" }
     ]
   }
 ]

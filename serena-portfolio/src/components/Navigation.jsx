@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Rocket, Download, Menu, X } from 'lucide-react'
-
-const LINKS = {
-  resume: "/resume.pdf",
-};
+import { Rocket, Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [navOpen, setNavOpen] = useState(false);
@@ -17,7 +13,7 @@ export default function Navigation() {
     { label: "Projects", path: "/projects" },
     // { label: "Athletics", path: "/athletics" }, // hidden for now
     { label: "Contact", path: "/contact" },
-    { label: "Connect", path: "/connect" },
+    { label: "Extra", path: "/connect" },
   ];
 
   const headerClass = onDark
@@ -46,9 +42,6 @@ export default function Navigation() {
               {label}
             </Link>
           ))}
-          <a href={LINKS.resume} className="tech-label inline-flex items-center gap-1.5 border rounded-full px-3 py-1.5 border-current hover:text-accent transition-colors">
-            <Download className="w-3.5 h-3.5" /> Resume
-          </a>
         </nav>
 
         <button className="sm:hidden p-2 -mr-2" onClick={() => setNavOpen(v => !v)} aria-label="Menu">
@@ -73,9 +66,6 @@ export default function Navigation() {
                 {label}
               </Link>
             ))}
-            <a href={LINKS.resume} className="tech-label px-3 py-3 inline-flex items-center gap-1.5">
-              <Download className="w-3.5 h-3.5"/> Resume
-            </a>
           </div>
         </div>
       )}

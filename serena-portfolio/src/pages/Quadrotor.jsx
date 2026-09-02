@@ -64,6 +64,10 @@ const weeks = [
     w: '05',
     title: 'Pitch, roll & yaw',
     body: 'Extended to all three axes. Final pitch gains settled at P = −7.5, D = −3, I = −0.035, with the trade-off that raising P for faster response amplified vibration. Roll ran its own loop (P = 15, D = 7), and yaw used proportional control on yaw rate (P = −2.0) mixed into diagonal motor pairs, since opposite-spinning rotors are what generate yaw torque. A motor-pause toggle was added for safe handling.',
+    fig: {
+      src: 'quad-pitch-tracking.png',
+      caption: 'Measured pitch (blue) tracking the commanded angle (orange) across ±40° steps — the controller follows with only slight lag',
+    },
   },
   {
     w: '06',
@@ -88,11 +92,19 @@ const weeks = [
     w: '09',
     title: 'Camera XY position hold',
     body: 'Cascaded outer-loop PD controllers on camera x and y position error, producing pitch and roll setpoints for the inner attitude loops. This was the hardest tuning of the quarter — the drone drifted persistently, and the culprits turned out to be the ~30 FPS ArUco pipeline adding latency, and testing inside ground effect, which badly distorted the response.',
+    fig: {
+      src: 'quad-gain-tuning.jpg',
+      caption: 'Gain tuning under the overhead camera — marker locked, pose and telemetry streaming live',
+    },
   },
   {
     w: '10',
     title: 'Autonomous altitude & full position hold',
     body: 'Closed the last axis with a shared-autonomy thrust loop — half pilot stick, half PID on the camera-reported height. After correcting a sign error on the camera z gains (camera z measures distance from the camera down to the drone) and tuning P and D before introducing I, the quadrotor held position autonomously in x, y, z and yaw.',
+    fig: {
+      src: 'quad-camera-z-thrust.jpg',
+      caption: 'The finale — camera-reported height (green) converging on the target altitude (dashed) as the autonomous thrust term (orange) works alongside the pilot stick (blue)',
+    },
   },
 ]
 
